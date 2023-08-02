@@ -18,7 +18,7 @@
 
     "jsx": "preserve",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "isolatedModules": false,//请添加导入、导出或空的“export {}”语句来使它成为模块--设置false关闭这种提示
     "esModuleInterop": true,
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true,
