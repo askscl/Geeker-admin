@@ -5,9 +5,12 @@
  * 2.是传入的泛型就写在泛型里
  * 3.是参数的类型就写在参数里
  * 4.是数组元素的类型就写在数组元素的类型里
+ * 
+ * 思考：
+ * 1.使用场景在哪？
  */
 
-//第1题
+//第1题--函数返回值推断
 type Return<T> = T extends (...args: any[]) => infer R ? R : T;
 type sum = (a: number, b: number) => number;
 type concat = (a: any[], b: any[]) => any[];
@@ -17,7 +20,7 @@ let concatResult: Return<concat>;
 
 
 
-//第2题
+//第2题--类型嵌套
 //  ts里有类型推断，有递归
 type PromiseType<T> = T extends Promise<infer K> ? K : T; 
 
@@ -25,7 +28,7 @@ type pt = PromiseType<Promise<string>>;
 
 
 
-//第3题
+//第3题--泛型里是个函数
 type FirstArg<T> = T extends (first: infer I, ...args: any[]) => void ? I : T;
 
 type fa = FirstArg<(name: string, age: number) => void>;
@@ -33,7 +36,7 @@ type fa = FirstArg<(name: string, age: number) => void>;
 
 
 
-//第四题
+//第四题--数组形式
 type ArrayType<T> = T extends (infer F)[] ? F : T;
 
 type ItemType1 = ArrayType<[string, number]>;
