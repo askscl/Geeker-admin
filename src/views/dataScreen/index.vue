@@ -152,7 +152,7 @@ onMounted(() => {
 const getScale = (width = 1920, height = 1080) => {
     let ww = window.innerWidth / width;
     let wh = window.innerHeight / height;
-    return ww < wh ? ww : wh;
+    return ww < wh ? ww : wh; // 取最小缩放比例(宽或高，谁小取谁)
 };
 
 // 监听浏览器 resize 事件
