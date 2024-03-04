@@ -118,6 +118,7 @@
 
 <script setup lang="ts" name="dataScreen">
 import { ref, Ref, onMounted, onBeforeUnmount } from "vue";
+// import type { Ref} from "vue"; // 引入Ref类型
 import { HOME_URL } from "@/config";
 import { randomNum } from "@/utils";
 import { useRouter } from "vue-router";
