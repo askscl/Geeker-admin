@@ -27,8 +27,8 @@ const u: U = {
 }
 
 u.a;
-u.b;//为什么报错？---
-u.c;
+// u.b;//为什么报错？---
+// u.c;
 
 
 //交叉类型
@@ -55,7 +55,7 @@ type test1 = 'a' | 'b' | 1 & string;
 //等价于
 type test2 = ('a' & string) | ('b' & string) | (1 & string);
 //交叉类型常用技巧，用于约束T的类型，针对属性名的约束
-type test3<T>= string & keyof T;
+type test3<T> = string & keyof T;
 
 
 

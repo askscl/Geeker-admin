@@ -10,7 +10,7 @@
 2.Record知识点翻阅
 */
 
-type DeepReadonly<T extends Record<string | symbol,any>> = {
+type DeepReadonly<T extends Record<string | symbol, any>> = {
     // readonly [K in keyof T]: T[K] extends object ? DeepReadonly<T[K]> : T[K]
     readonly [K in keyof T]: DeepReadonly<T[K]>;
 }
@@ -30,5 +30,5 @@ let obj: Readonly<Obj> = {
         d: 3
     }
 }
-obj.a = 3;
+// obj.a = 3;
 obj.c.d = 4;

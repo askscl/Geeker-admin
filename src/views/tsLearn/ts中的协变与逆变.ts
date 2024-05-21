@@ -18,7 +18,7 @@ interface IKun extends Fans {
     basketball: any;
 }
 
-interface SuperIKun extends IKun{
+interface SuperIKun extends IKun {
     rap: any;
 }
 
@@ -28,7 +28,7 @@ let fans: Fans = {
 };
 
 //报错原因：将父类型赋值给 子类型了
-let ikun1: IKun = fans;
+// let ikun1: IKun = fans;
 
 
 //第二题：--协变
