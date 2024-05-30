@@ -43,8 +43,8 @@ type argsType<T extends JSTypeName[]> = {
 
 declare function addImpl<T extends JSTypeName[]>(
     ...args: [
-        ...T,
-        (...args: argsType<T>) => any
+        ...T,//前面三个参数
+        (...args: argsType<T>) => any  //后面的箭头函数
     ]): void;
 
 addImpl('number', 'boolean', 'number', (a, b, c) => { });

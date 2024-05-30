@@ -1,5 +1,7 @@
 /* 
 
+fn.apply(this, args)，报错未解决
+
 思路：
 
 

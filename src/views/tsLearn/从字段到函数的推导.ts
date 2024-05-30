@@ -13,7 +13,9 @@ type Watcher<T> = {
     ): void;
 }
 
-
+//参数是一个对象
+//返回值是带on函数的对象
+//利用泛型的T对参数和返回值进行约束
 declare function watch<T>(obj: T): Watcher<T>;
 
 const personWatcher = watch({
