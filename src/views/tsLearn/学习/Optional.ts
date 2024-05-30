@@ -17,8 +17,8 @@ interface Article {
 } */
 
 /**
- * Omit: 从T中《去掉》第二个参数所代表的属性
- * Pick: 从T中《挑出》第二个参数所代表的属性
+ * Omit: 从T中《去掉》第二个参数所代表的属性(键名)
+ * Pick: 从T中《挑出》第二个参数所代表的属性(键名)
  * Partial: 将所有属性《变成可选》的
  */
 type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
@@ -31,4 +31,9 @@ function createArticle(option: CreateArticleOptions) {
 
 
 
-export { }
+createArticle({
+    title: 'title',
+    content: 'content',
+    date: new Date(),
+    readCount: 100,
+})
