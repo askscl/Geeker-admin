@@ -1,10 +1,15 @@
 /**
+ * infer特点：推导泛型参数
+    * 1.infer只能在extends中子语句使用
+    * 2.infer协变，针对对象的属性是普通值来说，比如：T extends infer K，K是infer推断出来的，K是T的父类型
+    * 3.infer逆变，针对对象的属性是函数来说，比如：T extends (infer K)[]，K是infer推断出来的，K是T的子类型
+ * 
  * 总结：
- * 使用infer，技巧及思路是：要推断的目标在哪，就写在哪
- * 1.比如，是返回值就写在返回值
- * 2.是传入的泛型就写在泛型里
- * 3.是参数的类型就写在参数里
- * 4.是数组元素的类型就写在数组元素的类型里
+    * 使用infer，技巧及思路是：要推断的目标在哪，就写在哪
+    * 1.比如，是返回值就写在返回值
+    * 2.是传入的泛型就写在泛型里
+    * 3.是参数的类型就写在参数里
+    * 4.是数组元素的类型就写在数组元素的类型里
  * 
  * 思考：
  * 1.使用场景在哪？
@@ -22,7 +27,7 @@ let concatResult: Return<concat>;
 
 //第2题--类型嵌套
 //  ts里有类型推断，有递归
-type PromiseType<T> = T extends Promise<infer K> ? K : T; 
+type PromiseType<T> = T extends Promise<infer K> ? K : T;
 
 type pt = PromiseType<Promise<string>>;
 
@@ -107,4 +112,4 @@ function getSum3(x: number, y : string | number): number{
 
 
 
-export {};
+export { };
