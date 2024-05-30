@@ -1,6 +1,6 @@
 // ts缺省，挑选，可选语法
 
-interface Article{
+interface Article {
     title: string;
     content: string;
     author: string;
@@ -25,10 +25,10 @@ type Optional<T, K extends keyof T> = Omit<T, K> & Partial<Pick<T, K>>;
 
 type CreateArticleOptions = Optional<Article, 'author' | 'date' | 'readCount'>;
 
-function createArticle(option: CreateArticleOptions){
+function createArticle(option: CreateArticleOptions) {
     // option.
 }
 
 
 
-export{}
+export { }

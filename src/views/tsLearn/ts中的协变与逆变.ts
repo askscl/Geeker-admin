@@ -1,10 +1,10 @@
 /* 
 本质：
-1.类型安全：保证成员始终可用
-2.子类型才能赋值给父类型
-    2.1小 =》大
-    2.2给: 小
-       收：大
+    1.类型安全：保证成员始终可用
+    2.子类型才能赋值给父类型
+        2.1小 =》大
+        2.2给: 小
+        收：大
 
 */
 
@@ -39,10 +39,21 @@ let ikun: IKun = {
     call: ''
 };
 
-let fans2: Fans = ikun;
+let fans2: Fans = ikun; //子类型赋值给父类型
 
 
-//第三题：--逆变（针对函数来说）
+//测试--孙赋值给子类型
+let superIKun: SuperIKun = {
+    sing: '',
+    dance: '',
+    basketball: '',
+    call: '',
+    rap: ''
+}
+let ikun2: IKun = superIKun;
+
+
+//第三题：--逆变（针对函数的参数【参数从左边往右边传】来说）
 type Transform = (x: IKun) => IKun;
 // type SubTransform = (x: SuperIKun) => SuperIKun;
 type SubTransform = (x: Fans) => SuperIKun;

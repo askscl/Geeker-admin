@@ -1,6 +1,5 @@
 // 1.函数使用泛型
 
-// import { Options } from "element-plus";
 
 //简单使用
 function test<T>(x: T, y: T): T[] { return [x, y] }
@@ -76,7 +75,7 @@ console.log(getLength([123, 22, 33]));
 
 // 5.2定义一个函数，传入对象和key, 返回value
 function getVal<T extends object, K extends keyof T>(obj: T, key: K) {
-    return obj[key]
+    return obj[key];
 }
 
 let objtest = {
