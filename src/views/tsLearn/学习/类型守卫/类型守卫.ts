@@ -32,6 +32,7 @@ const isArr = (arr: any) => arr instanceof Array;
 
 */
 
+//({}) 是Object.prototype的简写
 const isObj = (arg: any) => ({}).toString.call(arg) === '[object Object]';
 const isNum = (num: any): num is number => typeof num === 'number';
 const isStr = (str: any): str is string => typeof str === 'string';
