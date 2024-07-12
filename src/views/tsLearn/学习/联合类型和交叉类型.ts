@@ -73,11 +73,11 @@ const i3: I = {
 
 
 // | 和 & 运算符是如何展开的
-type test1 = 'a' | 'b' | 1 & string;
+type test1_1 = 'a' | 'b' | 1 & string;
 //等价于
-type test2 = ('a' & string) | ('b' & string) | (1 & string);
+type test2_1 = ('a' & string) | ('b' & string) | (1 & string);
 //交叉类型常用技巧，用于约束T的类型，针对属性名的约束
-type test3<T> = string & keyof T;
+type test3_1<T> = string & keyof T;
 
 
 

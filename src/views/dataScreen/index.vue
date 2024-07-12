@@ -397,7 +397,7 @@ const initCharts = (): void => {
 
 // 获取当前时间
 const { nowTime } = useTime()
-let timer: NodeJS.Timer | null = null
+let timer: NodeJS.Timer | number | null = null
 let time: Ref<string> = ref(nowTime.value)
 timer = setInterval(() => {
     time.value = useTime().nowTime.value
@@ -406,7 +406,7 @@ timer = setInterval(() => {
 // 销毁时触发
 onBeforeUnmount(() => {
     window.removeEventListener("resize", resize)
-    clearInterval(timer!)
+    clearInterval(timer as number)
     Object.values(dataScreen).forEach(val => val?.dispose())
 })
 </script>
