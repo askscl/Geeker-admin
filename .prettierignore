@@ -6,5 +6,6 @@
 **/*.sh
 
 /public/*
+/src/assets/mock/*
 /src/views/tsLearn/*
 stats.html
