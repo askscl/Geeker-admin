@@ -1,0 +1,13 @@
+{
+  "code": 200,
+  "data": [{
+      userLabel: "启用",
+      userStatus: 1
+    },
+    {
+      userLabel: "禁用",
+      userStatus: 0
+    }
+  ],
+  "msg": "成功"
+}
