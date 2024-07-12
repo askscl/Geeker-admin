@@ -16,6 +16,50 @@
             }
         },
         {
+            "path": "/vue3Learn",
+            "name": "vue3Learn",
+            "redirect": "/vue3Learn/test",
+            "meta": {
+                "icon": "MessageBox",
+                "title": "VUE3学习",
+                "isLink": "",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": false,
+                "isKeepAlive": true
+            },
+            "children": [
+                {
+                    "path": "/vue3Learn/test",
+                    "name": "test",
+                    "component": "/vue3Learn/test/index2",
+                    "meta": {
+                        "icon": "Menu",
+                        "title": "测试1",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": true
+                    }
+                },
+                {
+                    "path": "/vue3Learn/vModel",
+                    "name": "vModel",
+                    "component": "/vue3Learn/vModel/vModel",
+                    "meta": {
+                        "icon": "Menu",
+                        "title": "v-model测试",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": true
+                    }
+                }
+            ]
+        },
+        {
             "path": "/dataScreen",
             "name": "dataScreen",
             "component": "/dataScreen/index",

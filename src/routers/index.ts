@@ -6,6 +6,7 @@ import { initDynamicRouter } from "@/routers/modules/dynamicRouter";
 import { staticRouter, errorRouter } from "@/routers/modules/staticRouter";
 import NProgress from "@/config/nprogress";
 
+//路由属性规则说明：
 /**
  * @description 📚 路由参数配置简介
  * @param path ==> 路由菜单访问路径
@@ -58,7 +59,7 @@ router.beforeEach(async (to, from, next) => {
 
     // 6.如果没有菜单列表，就重新请求菜单列表并添加动态路由
     if (!authStore.authMenuListGet.length) {
-        await initDynamicRouter();
+        await initDynamicRouter(); //==================路由添加处：src\assets\json\authMenuList.json====================
         return next({ ...to, replace: true });
     }
 
