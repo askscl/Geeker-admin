@@ -13,13 +13,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, Ref } from "vue";
-import { ECharts, init } from "echarts";
-import "echarts-liquidfill";
-const actualTotal: Ref<string> = ref("216908");
+import { ref, Ref } from "vue"
+import { ECharts, init } from "echarts"
+import "echarts-liquidfill"
+const actualTotal: Ref<string> = ref("216908")
 const initChart = (data: number = 1): ECharts => {
-    const charEle = document.getElementById("RealTimeAccessChart") as HTMLElement;
-    const charEch: ECharts = init(charEle);
+    const charEle = document.getElementById("RealTimeAccessChart") as HTMLElement
+    const charEch: ECharts = init(charEle)
     const option = {
         title: [
             {
@@ -191,13 +191,13 @@ const initChart = (data: number = 1): ECharts => {
                 color: "#31d8d5"
             }
         ]
-    };
-    charEch.setOption(option);
-    return charEch;
-};
+    }
+    charEch.setOption(option)
+    return charEch
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .echarts {

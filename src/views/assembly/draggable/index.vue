@@ -16,8 +16,8 @@
 </template>
 
 <script setup lang="ts" name="draggable">
-import { ref } from "vue";
-import draggable from "vuedraggable";
+import { ref } from "vue"
+import draggable from "vuedraggable"
 
 let gridList = ref([
     { id: 1, num: 1 },
@@ -29,7 +29,7 @@ let gridList = ref([
     { id: 7, num: 7 },
     { id: 8, num: 8 },
     { id: 9, num: 9 }
-]);
+])
 </script>
 
 <style scoped lang="scss">

@@ -3,13 +3,13 @@
     <div ref="echartsRef" class="echarts"></div>
 </template>
 <script setup lang="ts" name="pie">
-import { ref } from "vue";
-import * as echarts from "echarts";
-import { useEcharts } from "@/hooks/useEcharts";
+import { ref } from "vue"
+import * as echarts from "echarts"
+import { useEcharts } from "@/hooks/useEcharts"
 
-const echartsRef = ref<HTMLElement>();
+const echartsRef = ref<HTMLElement>()
 const initChart = (data: any) => {
-    const myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement);
+    const myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement)
     const option: echarts.EChartsOption = {
         title: {
             text: "Gitee / GitHub",
@@ -42,17 +42,17 @@ const initChart = (data: any) => {
                 fontWeight: 500
             },
             formatter: function (name: string) {
-                let dataCopy = "";
+                let dataCopy = ""
                 for (let i = 0; i < data.length; i++) {
                     if (data[i].name == name && data[i].value >= 10000) {
-                        dataCopy = (data[i].value / 10000).toFixed(2);
-                        return name + "      " + dataCopy + "w";
+                        dataCopy = (data[i].value / 10000).toFixed(2)
+                        return name + "      " + dataCopy + "w"
                     } else if (data[i].name == name) {
-                        dataCopy = data[i].value;
-                        return name + "      " + dataCopy;
+                        dataCopy = data[i].value
+                        return name + "      " + dataCopy
                     }
                 }
-                return "";
+                return ""
             }
         },
         series: [
@@ -117,12 +117,12 @@ const initChart = (data: any) => {
                 ]
             }
         ]
-    };
-    useEcharts(myChart, option);
-};
+    }
+    useEcharts(myChart, option)
+}
 defineExpose({
     initChart
-});
+})
 </script>
 
 <style lang="scss" scoped>

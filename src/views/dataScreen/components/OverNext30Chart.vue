@@ -4,24 +4,24 @@
 </template>
 
 <script setup lang="ts">
-import { ECharts, EChartsOption, init } from "echarts";
+import { ECharts, EChartsOption, init } from "echarts"
 interface ChartProp {
-    unit: string[];
-    data: number[];
+    unit: string[]
+    data: number[]
 }
 const initChart = (data: any = {}): ECharts => {
-    const charEle = document.getElementById("OverNext30Chart") as HTMLElement;
-    const charEch: ECharts = init(charEle);
+    const charEle = document.getElementById("OverNext30Chart") as HTMLElement
+    const charEch: ECharts = init(charEle)
     const option: EChartsOption = {
         tooltip: {
             trigger: "axis",
             confine: true,
             formatter: (params: any) => {
-                let tipData = params[0];
+                let tipData = params[0]
                 let html = `<div class="lineChart-bg">
                         <span style="">${tipData.name} <i >${tipData.value}</i> 人次访问</span>
-                    </div>`;
-                return html;
+                    </div>`
+                return html
             },
             backgroundColor: "transparent", // 提示标签背景颜色
             borderColor: "transparent",
@@ -61,7 +61,7 @@ const initChart = (data: any = {}): ECharts => {
                     padding: 0,
                     fontSize: 12,
                     formatter: function (data) {
-                        return data;
+                        return data
                     }
                 },
                 splitLine: {
@@ -104,15 +104,15 @@ const initChart = (data: any = {}): ECharts => {
                     padding: 0,
                     formatter: function (value: string) {
                         if (Number(value) >= 10000) {
-                            value = Number(value) / 10000 + "w";
+                            value = Number(value) / 10000 + "w"
                         }
-                        return value;
+                        return value
                     }
                 },
                 axisTick: {
                     show: false
                 }
-            };
+            }
         }),
         series: data.data.map(() => {
             return {
@@ -164,33 +164,33 @@ const initChart = (data: any = {}): ECharts => {
                     shadowBlur: 20 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
                 },
                 data: data.data
-            };
+            }
         })
-    };
-    charEch.setOption(option);
-    return charEch;
-};
+    }
+    charEch.setOption(option)
+    return charEch
+}
 // js 获取当前日期到之后一个月30天的日期区间
 const initDate = (): string[] => {
-    let dateList = [];
-    let startDate = new Date();
-    let endDate = new Date();
-    endDate.setDate(startDate.getDate() + 30);
-    startDate.setDate(startDate.getDate() + 1);
+    let dateList = []
+    let startDate = new Date()
+    let endDate = new Date()
+    endDate.setDate(startDate.getDate() + 30)
+    startDate.setDate(startDate.getDate() + 1)
     while (endDate.getTime() - startDate.getTime() >= 0) {
         let month =
             (startDate.getMonth() + 1).toString().length === 1
                 ? "0" + (startDate.getMonth() + 1).toString()
-                : startDate.getMonth() + 1;
-        let day = startDate.getDate().toString().length === 1 ? "0" + startDate.getDate() : startDate.getDate();
-        dateList.push(month + "/" + day);
-        startDate.setDate(startDate.getDate() + 1);
+                : startDate.getMonth() + 1
+        let day = startDate.getDate().toString().length === 1 ? "0" + startDate.getDate() : startDate.getDate()
+        dateList.push(month + "/" + day)
+        startDate.setDate(startDate.getDate() + 1)
     }
-    return dateList;
-};
+    return dateList
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .echarts {

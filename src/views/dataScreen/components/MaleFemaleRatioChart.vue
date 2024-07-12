@@ -17,14 +17,14 @@
 </template>
 
 <script setup lang="ts">
-import { ECharts, EChartsOption, init } from "echarts";
+import { ECharts, EChartsOption, init } from "echarts"
 interface ChartProp {
-    man: number;
-    woman: number;
+    man: number
+    woman: number
 }
 const initChart = (data: ChartProp): ECharts => {
-    const charEle = document.getElementById("MaleFemaleRatioChart") as HTMLElement;
-    const charEch: ECharts = init(charEle);
+    const charEle = document.getElementById("MaleFemaleRatioChart") as HTMLElement
+    const charEch: ECharts = init(charEle)
     const option: EChartsOption = {
         xAxis: {
             type: "value",
@@ -96,7 +96,7 @@ const initChart = (data: ChartProp): ECharts => {
                     offset: [0, -20],
                     fontSize: 12,
                     formatter: () => {
-                        return `男士 ${data.man * 100}%`;
+                        return `男士 ${data.man * 100}%`
                     }
                 }
             },
@@ -116,18 +116,18 @@ const initChart = (data: ChartProp): ECharts => {
                     offset: [0, -20],
                     fontSize: 12,
                     formatter: () => {
-                        return `女士 ${data.woman * 100}%`;
+                        return `女士 ${data.woman * 100}%`
                     }
                 }
             }
         ]
-    };
-    charEch.setOption(option);
-    return charEch;
-};
+    }
+    charEch.setOption(option)
+    return charEch
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .malefemaleRatio-main {

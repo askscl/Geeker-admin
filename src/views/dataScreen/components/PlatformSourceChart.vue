@@ -4,15 +4,15 @@
 </template>
 
 <script setup lang="ts">
-import { ECharts, EChartsOption, init } from "echarts";
+import { ECharts, EChartsOption, init } from "echarts"
 interface ChartProp {
-    name: string;
-    value: number;
-    percentage: string;
+    name: string
+    value: number
+    percentage: string
 }
 const initChart = (data: any = {}): ECharts => {
-    const charEle = document.getElementById("PlatformSourceChart") as HTMLElement;
-    const charEch: ECharts = init(charEle);
+    const charEle = document.getElementById("PlatformSourceChart") as HTMLElement
+    const charEch: ECharts = init(charEle)
     const option: EChartsOption = {
         grid: {
             top: "0%",
@@ -38,13 +38,13 @@ const initChart = (data: any = {}): ECharts => {
             },
             itemGap: 20,
             formatter: function (name: string) {
-                let text = "";
+                let text = ""
                 data.data.forEach((val: ChartProp) => {
                     if (val.name === name) {
-                        text = name + " --- " + val.percentage;
+                        text = name + " --- " + val.percentage
                     }
-                });
-                return text;
+                })
+                return text
             },
             data: data.data.map((val: ChartProp) => val.name)
         },
@@ -198,7 +198,7 @@ const initChart = (data: any = {}): ECharts => {
                                 borderWidth: 0,
                                 borderColor: "rgba(0,0,0,0)"
                             }
-                        };
+                        }
                     } else {
                         return {
                             name: (index + 1).toString(),
@@ -208,7 +208,7 @@ const initChart = (data: any = {}): ECharts => {
                                 borderWidth: 0,
                                 borderColor: "rgba(0,0,0,0)"
                             }
-                        };
+                        }
                     }
                 })
             },
@@ -331,13 +331,13 @@ const initChart = (data: any = {}): ECharts => {
                 ]
             }
         ]
-    };
-    charEch.setOption(option, true);
-    return charEch;
-};
+    }
+    charEch.setOption(option, true)
+    return charEch
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .echarts {

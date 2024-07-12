@@ -19,9 +19,9 @@
 </template>
 
 <script setup lang="ts" name="proForm">
-import { ref } from "vue";
+import { ref } from "vue"
 
-let model = ref<any>({});
+let model = ref<any>({})
 
 const options = ref({
     // 表单整体配置项
@@ -76,7 +76,7 @@ const options = ref({
             }
         }
     ]
-});
+})
 </script>
 
 <style scoped lang="scss">

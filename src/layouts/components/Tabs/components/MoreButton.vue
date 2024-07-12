@@ -29,56 +29,56 @@
 </template>
 
 <script setup lang="ts">
-import { inject, nextTick } from "vue";
-import { HOME_URL } from "@/config";
-import { useTabsStore } from "@/stores/modules/tabs";
-import { useGlobalStore } from "@/stores/modules/global";
-import { useKeepAliveStore } from "@/stores/modules/keepAlive";
-import { useRoute, useRouter } from "vue-router";
+import { inject, nextTick } from "vue"
+import { HOME_URL } from "@/config"
+import { useTabsStore } from "@/stores/modules/tabs"
+import { useGlobalStore } from "@/stores/modules/global"
+import { useKeepAliveStore } from "@/stores/modules/keepAlive"
+import { useRoute, useRouter } from "vue-router"
 
-const route = useRoute();
-const router = useRouter();
-const tabStore = useTabsStore();
-const globalStore = useGlobalStore();
-const keepAliveStore = useKeepAliveStore();
+const route = useRoute()
+const router = useRouter()
+const tabStore = useTabsStore()
+const globalStore = useGlobalStore()
+const keepAliveStore = useKeepAliveStore()
 
 // refresh current page
-const refreshCurrentPage: Function = inject("refresh") as Function;
+const refreshCurrentPage: Function = inject("refresh") as Function
 const refresh = () => {
     setTimeout(() => {
-        keepAliveStore.removeKeepAliveName(route.name as string);
-        refreshCurrentPage(false);
+        keepAliveStore.removeKeepAliveName(route.name as string)
+        refreshCurrentPage(false)
         nextTick(() => {
-            keepAliveStore.addKeepAliveName(route.name as string);
-            refreshCurrentPage(true);
-        });
-    }, 0);
-};
+            keepAliveStore.addKeepAliveName(route.name as string)
+            refreshCurrentPage(true)
+        })
+    }, 0)
+}
 
 // maximize current page
 const maximize = () => {
-    globalStore.setGlobalState("maximize", true);
-};
+    globalStore.setGlobalState("maximize", true)
+}
 
 // Close Current
 const closeCurrentTab = () => {
-    if (route.meta.isAffix) return;
-    tabStore.removeTabs(route.fullPath);
-    keepAliveStore.removeKeepAliveName(route.name as string);
-};
+    if (route.meta.isAffix) return
+    tabStore.removeTabs(route.fullPath)
+    keepAliveStore.removeKeepAliveName(route.name as string)
+}
 
 // Close Other
 const closeOtherTab = () => {
-    tabStore.closeMultipleTab(route.fullPath);
-    keepAliveStore.setKeepAliveName([route.name] as string[]);
-};
+    tabStore.closeMultipleTab(route.fullPath)
+    keepAliveStore.setKeepAliveName([route.name] as string[])
+}
 
 // Close All
 const closeAllTab = () => {
-    tabStore.closeMultipleTab();
-    keepAliveStore.setKeepAliveName();
-    router.push(HOME_URL);
-};
+    tabStore.closeMultipleTab()
+    keepAliveStore.setKeepAliveName()
+    router.push(HOME_URL)
+}
 </script>
 
 <style scoped lang="scss">

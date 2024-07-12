@@ -41,10 +41,10 @@
 </template>
 
 <script setup lang="ts" name="authButton">
-import { useAuthButtons } from "@/hooks/useAuthButtons";
-import { CirclePlus, Delete, EditPen, Download, Upload } from "@element-plus/icons-vue";
+import { useAuthButtons } from "@/hooks/useAuthButtons"
+import { CirclePlus, Delete, EditPen, Download, Upload } from "@element-plus/icons-vue"
 
-const { BUTTONS } = useAuthButtons();
+const { BUTTONS } = useAuthButtons()
 </script>
 
 <style scoped lang="scss">

@@ -3,16 +3,16 @@
 </template>
 
 <script setup lang="ts" name="waterChart">
-import { ref, onMounted } from "vue";
-import { useEcharts } from "@/hooks/useEcharts";
-import * as echarts from "echarts";
-import "echarts-liquidfill";
+import { ref, onMounted } from "vue"
+import { useEcharts } from "@/hooks/useEcharts"
+import * as echarts from "echarts"
+import "echarts-liquidfill"
 
-const echartsRef = ref<HTMLElement>();
+const echartsRef = ref<HTMLElement>()
 onMounted(() => {
-    let myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement);
-    let value = 0.5;
-    let data = [value, value, value];
+    let myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement)
+    let value = 0.5
+    let data = [value, value, value]
     let option: echarts.EChartsCoreOption = {
         title: [
             {
@@ -295,9 +295,9 @@ onMounted(() => {
                 ]
             }
         ]
-    };
-    useEcharts(myChart, option);
-});
+    }
+    useEcharts(myChart, option)
+})
 </script>
 
 <style scoped lang="scss">

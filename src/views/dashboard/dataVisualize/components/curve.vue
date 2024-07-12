@@ -3,13 +3,13 @@
     <div ref="echartsRef" class="echarts"></div>
 </template>
 <script setup lang="ts" name="cure">
-import { ref } from "vue";
-import * as echarts from "echarts";
-import { useEcharts } from "@/hooks/useEcharts";
+import { ref } from "vue"
+import * as echarts from "echarts"
+import { useEcharts } from "@/hooks/useEcharts"
 
-const echartsRef = ref<HTMLElement>();
+const echartsRef = ref<HTMLElement>()
 const initChart = (data: any) => {
-    const myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement);
+    const myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement)
     const option = {
         tooltip: {
             trigger: "axis",
@@ -23,8 +23,8 @@ const initChart = (data: any) => {
       color:#fff; background: #6B9DFE;border-radius: 4px;font-size:14px; ">
         <div style="display: flex; align-items: center;"> <div style="width:5px;height:5px;background:#ffffff;border-radius: 50%;margin-right:5px"></div>平台 :  ${p[0].name}</div>
         <div style="display: flex;align-items: center;"><div style="width:5px;height:5px;background:#ffffff;border-radius: 50%;margin-right:5px"></div>数据量 :  ${p[0].value}</div>
-      </div>`;
-                return dom;
+      </div>`
+                return dom
             }
         },
         toolbox: {
@@ -63,7 +63,7 @@ const initChart = (data: any) => {
                 data: data.map((val: any) => {
                     return {
                         value: val.spotName
-                    };
+                    }
                 }),
                 axisTick: {
                     show: false
@@ -75,8 +75,8 @@ const initChart = (data: any) => {
                     color: "#a1a1a1",
                     fontSize: 14,
                     formatter: function (name: string) {
-                        undefined;
-                        return name.length > 8 ? name.slice(0, 8) + "..." : name;
+                        undefined
+                        return name.length > 8 ? name.slice(0, 8) + "..." : name
                     }
                 },
                 axisLine: {
@@ -107,11 +107,11 @@ const initChart = (data: any) => {
                     fontWeight: 400,
                     formatter: function (value: number) {
                         if (value === 0) {
-                            return value;
+                            return value
                         } else if (value >= 10000) {
-                            return value / 10000 + "w";
+                            return value / 10000 + "w"
                         }
-                        return value;
+                        return value
                     }
                 }
             }
@@ -123,7 +123,7 @@ const initChart = (data: any) => {
                 data: data.map((val: any) => {
                     return {
                         value: val.value
-                    };
+                    }
                 }),
                 barWidth: "45px",
                 itemStyle: {
@@ -137,12 +137,12 @@ const initChart = (data: any) => {
                 }
             }
         ]
-    };
-    useEcharts(myChart, option);
-};
+    }
+    useEcharts(myChart, option)
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .echarts {

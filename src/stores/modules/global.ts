@@ -1,7 +1,7 @@
-import { defineStore } from "pinia";
-import { GlobalState } from "@/stores/interface";
-import { DEFAULT_PRIMARY } from "@/config";
-import piniaPersistConfig from "@/config/piniaPersist";
+import { defineStore } from "pinia"
+import { GlobalState } from "@/stores/interface"
+import { DEFAULT_PRIMARY } from "@/config"
+import piniaPersistConfig from "@/config/piniaPersist"
 
 export const useGlobalStore = defineStore({
     id: "geeker-global",
@@ -44,8 +44,8 @@ export const useGlobalStore = defineStore({
     actions: {
         // Set GlobalState
         setGlobalState(...args: ObjToKeyValArray<GlobalState>) {
-            this.$patch({ [args[0]]: args[1] });
+            this.$patch({ [args[0]]: args[1] })
         }
     },
     persist: piniaPersistConfig("geeker-global")
-});
+})

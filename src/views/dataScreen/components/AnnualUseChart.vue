@@ -4,15 +4,15 @@
 </template>
 
 <script setup lang="ts">
-import { ECharts, EChartsOption, init } from "echarts";
+import { ECharts, EChartsOption, init } from "echarts"
 interface ChartProp {
-    label: string;
-    value: string[];
+    label: string
+    value: string[]
 }
 const initChart = (data: any = {}): ECharts => {
-    const charEle = document.getElementById("AnnualUseChart") as HTMLElement;
-    const gradientColors = ["rgba(254, 219, 101,0.1)", "rgba(0, 122, 254,0.1)", "rgba(255, 75, 122, 0.1)"];
-    const charEch: ECharts = init(charEle);
+    const charEle = document.getElementById("AnnualUseChart") as HTMLElement
+    const gradientColors = ["rgba(254, 219, 101,0.1)", "rgba(0, 122, 254,0.1)", "rgba(255, 75, 122, 0.1)"]
+    const charEch: ECharts = init(charEle)
     const option: EChartsOption = {
         tooltip: {
             trigger: "axis",
@@ -23,7 +23,7 @@ const initChart = (data: any = {}): ECharts => {
             padding: 0,
             backgroundColor: "transparent",
             formatter: (p: any) => {
-                let str = "";
+                let str = ""
                 p.forEach((val: any) => {
                     str += `
           <div class="year-item">
@@ -31,8 +31,8 @@ const initChart = (data: any = {}): ECharts => {
             <span class="year-name">${val.seriesName}</span>
             <span class="year-value">${val.data >= 10000 ? (val.data / 10000).toFixed(2) + "w" : val.data}</span>
           </div>
-          `;
-                });
+          `
+                })
                 let dom = `
                     <div class="annual-tooTip">
                       <span class="annual-month">${p[0].dataIndex + 1}月</span>
@@ -40,8 +40,8 @@ const initChart = (data: any = {}): ECharts => {
                         ${str}
                       </div>
                     </div>
-                  `;
-                return dom;
+                  `
+                return dom
             }
         },
 
@@ -82,7 +82,7 @@ const initChart = (data: any = {}): ECharts => {
                     padding: 0,
                     fontSize: 12,
                     formatter: function (data) {
-                        return data;
+                        return data
                     }
                 },
                 splitLine: {
@@ -126,9 +126,9 @@ const initChart = (data: any = {}): ECharts => {
                 padding: 0,
                 formatter: function (value: any) {
                     if (value >= 10000) {
-                        value = value / 10000 + "w";
+                        value = value / 10000 + "w"
                     }
-                    return value;
+                    return value
                 }
             },
             axisTick: {
@@ -180,15 +180,15 @@ const initChart = (data: any = {}): ECharts => {
                     shadowBlur: 20 // shadowBlur设图形阴影的模糊大小。配合shadowColor,shadowOffsetX/Y, 设置图形的阴影效果。
                 },
                 data: val.value
-            };
+            }
         })
-    };
-    charEch.setOption(option);
-    return charEch;
-};
+    }
+    charEch.setOption(option)
+    return charEch
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .echarts {

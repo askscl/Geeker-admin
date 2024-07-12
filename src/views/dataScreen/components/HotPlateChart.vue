@@ -9,17 +9,17 @@
 </template>
 
 <script setup lang="ts">
-import { ECharts, EChartsOption, init } from "echarts";
-import { ranking1, ranking2, ranking3, ranking4 } from "../assets/ranking-icon";
+import { ECharts, EChartsOption, init } from "echarts"
+import { ranking1, ranking2, ranking3, ranking4 } from "../assets/ranking-icon"
 interface ChartProp {
-    name: string;
-    value: number;
-    percentage: string;
-    maxValue: number;
+    name: string
+    value: number
+    percentage: string
+    maxValue: number
 }
 const initChart = (data: any = {}): ECharts => {
-    const charEle = document.getElementById("HotPlateChart") as HTMLElement;
-    const charEch: ECharts = init(charEle);
+    const charEle = document.getElementById("HotPlateChart") as HTMLElement
+    const charEch: ECharts = init(charEle)
     const option: EChartsOption = {
         grid: {
             top: "5%",
@@ -68,9 +68,9 @@ const initChart = (data: any = {}): ECharts => {
                 axisLabel: {
                     color: "#fff",
                     formatter: function (value: any) {
-                        let str = value.length > 6 ? value.slice(0, 6) + "..." : value;
-                        let index = data.data.map((item: ChartProp) => item.name).indexOf(value) + 1;
-                        return ["{" + (index > 3 ? "lg" : "lg" + index) + "|NO." + index + "}", "{title|" + str + "}"].join(" ");
+                        let str = value.length > 6 ? value.slice(0, 6) + "..." : value
+                        let index = data.data.map((item: ChartProp) => item.name).indexOf(value) + 1
+                        return ["{" + (index > 3 ? "lg" : "lg" + index) + "|NO." + index + "}", "{title|" + str + "}"].join(" ")
                     },
                     rich: {
                         lg1: {
@@ -135,7 +135,7 @@ const initChart = (data: any = {}): ECharts => {
                     // align: "right",
                     margin: 20,
                     formatter: (value: any) => {
-                        return value >= 10000 ? (value / 10000).toFixed(2) + "w" : value;
+                        return value >= 10000 ? (value / 10000).toFixed(2) + "w" : value
                     }
                 },
                 axisLine: {
@@ -160,8 +160,8 @@ const initChart = (data: any = {}): ECharts => {
                 itemStyle: {
                     borderRadius: 30,
                     color: function (params) {
-                        let num = data.colors.length;
-                        return data.colors[params.dataIndex % num];
+                        let num = data.colors.length
+                        return data.colors[params.dataIndex % num]
                     }
                 },
                 label: {
@@ -170,7 +170,7 @@ const initChart = (data: any = {}): ECharts => {
                     lineHeight: 14,
                     color: "#fff",
                     formatter: (params: any) => {
-                        return params.data.percentage;
+                        return params.data.percentage
                     }
                 }
             },
@@ -180,9 +180,9 @@ const initChart = (data: any = {}): ECharts => {
                 yAxisIndex: 1,
                 data: data.data.map((val: ChartProp) => {
                     if (!val.maxValue) {
-                        return 5;
+                        return 5
                     }
-                    return val.maxValue;
+                    return val.maxValue
                 }),
                 barWidth: 18,
                 itemStyle: {
@@ -194,13 +194,13 @@ const initChart = (data: any = {}): ECharts => {
                 silent: true
             }
         ]
-    };
-    charEch.setOption(option);
-    return charEch;
-};
+    }
+    charEch.setOption(option)
+    return charEch
+}
 defineExpose({
     initChart
-});
+})
 </script>
 <style lang="scss" scoped>
 .echarts {

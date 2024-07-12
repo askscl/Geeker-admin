@@ -74,18 +74,18 @@
 </template>
 
 <script setup lang="ts" name="dataVisualize">
-import { ref, onMounted } from "vue";
-import Pie from "./components/pie.vue";
-import Curve from "./components/curve.vue";
+import { ref, onMounted } from "vue"
+import Pie from "./components/pie.vue"
+import Curve from "./components/curve.vue"
 
-const tabActive = ref(1);
-const pieRef = ref();
-const curveRef = ref();
+const tabActive = ref(1)
+const pieRef = ref()
+const curveRef = ref()
 
 onMounted(() => {
-    pieRef.value.initChart(pieData);
-    curveRef.value.initChart(curveData);
-});
+    pieRef.value.initChart(pieData)
+    curveRef.value.initChart(curveData)
+})
 
 const tab = [
     { label: "未来7日", name: 1 },
@@ -94,11 +94,11 @@ const tab = [
     { label: "近三月", name: 4 },
     { label: "近半年", name: 5 },
     { label: "近一年", name: 6 }
-];
+]
 const pieData = [
     { value: 5000, name: "Gitee 访问量" },
     { value: 5000, name: "GitHub 访问量" }
-];
+]
 const curveData = [
     { value: 30, spotName: "掘金" },
     { value: 90, spotName: "CSDN" },
@@ -109,7 +109,7 @@ const curveData = [
     { value: 55, spotName: "简书" },
     { value: 80, spotName: "StackOverFlow" },
     { value: 50, spotName: "博客园" }
-];
+]
 </script>
 
 <style scoped lang="scss">
