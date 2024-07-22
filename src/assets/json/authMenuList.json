@@ -26,7 +26,7 @@
                 "isHide": false,
                 "isFull": false,
                 "isAffix": false,
-                "isKeepAlive": true
+                "isKeepAlive": false
             },
             "children": [
                 {
@@ -40,7 +40,7 @@
                         "isHide": false,
                         "isFull": false,
                         "isAffix": false,
-                        "isKeepAlive": true
+                        "isKeepAlive": false
                     }
                 },
                 {
@@ -54,7 +54,7 @@
                         "isHide": false,
                         "isFull": false,
                         "isAffix": false,
-                        "isKeepAlive": true
+                        "isKeepAlive": false
                     }
                 }
             ]
