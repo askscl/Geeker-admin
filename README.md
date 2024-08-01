@@ -208,4 +208,5 @@ Geeker-Admin
 | <img src="https://i.imgtg.com/2023/01/16/QRzBX.png" alt="Alipay QRcode" width=170> | <img src="https://i.imgtg.com/2023/01/16/QRFZt.png" alt="Wechat QRcode" width=170> |
 
 原 vue 版本："^3.3.4",
-原 vue 版本："^3.4.31"
+现 vue 版本："^3.4.31"
+现 vue 版本："^3.4.35"

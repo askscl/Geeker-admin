@@ -9,17 +9,22 @@ import { ref, reactive } from 'vue'
 
 const isShow = ref(false)
 const show = () => {
+    // console.log('我运行了show')
     isShow.value = true
 }
 const hide = () => {
     isShow.value = false
+}
+const lg = () => {
+    console.log('我运行了lg')
 }
 
 //对外暴露 当前组件的属性和方法
 defineExpose({
     isShow,
     show,
-    hide
+    hide,
+    lg
 })
 </script>
 

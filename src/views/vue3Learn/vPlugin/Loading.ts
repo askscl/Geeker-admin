@@ -10,13 +10,15 @@ export default {
         //render 把我们的Vnode 生成真实DOM 并且挂载到指定节点
         render(vnode, document.body)
 
-        // console.log("vnode: ", vnode)
-        // console.log("exposed: ", vnode.component?.exposed)
+        // console.log('vnode: ', vnode)
+        // console.log('exposed: ', vnode.component?.exposed)
 
         // Vue 提供的全局配置 可以自定义
         app.config.globalProperties.$__myLoading = {
-            show: () => vnode.component?.exposed?.show,
-            hide: () => vnode.component?.exposed?.hide
+            show: () => vnode.component?.exposed?.show(), //注意函数要加括号
+            hide: () => vnode.component?.exposed?.hide(),
+            lg: () => vnode.component?.exposed?.lg()
+            // lg: () => console.log(111111)
         }
     }
 }

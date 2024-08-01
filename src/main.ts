@@ -33,7 +33,8 @@ import pinia from '@/stores'
 // errorHandler
 import errorHandler from '@/utils/errorHandler'
 //练习使用
-import Loading from '@/views/vue3Learn/vPlugin/Loading'
+import Loading from './views/vue3Learn/vPlugin/Loading'
+import myI18 from './views/vue3Learn/vPlugin/myI18'
 
 const app = createApp(App)
 
@@ -41,15 +42,22 @@ const app = createApp(App)
 type Lod = {
     show: () => void
     hide: () => void
+    lg: () => void
 }
 
 declare module 'vue' {
     export interface ComponentCustomProperties {
         $__myLoading: Lod
+        $translate: (key: string) => string
     }
 }
 
 app.use(Loading)
+app.use(myI18, {
+    greetings: {
+        hello: '你好'
+    }
+})
 //练习使用end
 
 app.config.errorHandler = errorHandler
