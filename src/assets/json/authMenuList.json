@@ -30,12 +30,12 @@
             },
             "children": [
                 {
-                    "path": "/vue3Learn/test",
-                    "name": "test",
-                    "component": "/vue3Learn/test/index",
+                    "path": "/vue3Learn/vModel",
+                    "name": "vModel",
+                    "component": "/vue3Learn/vModel/vModel",
                     "meta": {
                         "icon": "Menu",
-                        "title": "测试1",
+                        "title": "v-model测试",
                         "isLink": "",
                         "isHide": false,
                         "isFull": false,
@@ -44,12 +44,26 @@
                     }
                 },
                 {
-                    "path": "/vue3Learn/vModel",
-                    "name": "vModel",
-                    "component": "/vue3Learn/vModel/vModel",
+                    "path": "/vue3Learn/vPlugin",
+                    "name": "vPlugin",
+                    "component": "/vue3Learn/vPlugin/index",
                     "meta": {
                         "icon": "Menu",
-                        "title": "v-model测试",
+                        "title": "vue插件",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": false
+                    }
+                },
+                {
+                    "path": "/vue3Learn/test",
+                    "name": "test",
+                    "component": "/vue3Learn/test/index",
+                    "meta": {
+                        "icon": "Menu",
+                        "title": "测试1",
                         "isLink": "",
                         "isHide": false,
                         "isFull": false,

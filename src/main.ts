@@ -32,8 +32,25 @@ import I18n from "@/languages/index"
 import pinia from "@/stores"
 // errorHandler
 import errorHandler from "@/utils/errorHandler"
+//练习使用
+import Loading from "@/views/vue3Learn/vPlugin/Loading"
 
 const app = createApp(App)
+
+//练习使用star--手写vue插件
+type Lod = {
+    show: () => void
+    hide: () => void
+}
+
+declare module "vue" {
+    export interface ComponentCustomProperties {
+        $__myLoading: Lod
+    }
+}
+
+app.use(Loading)
+//练习使用end
 
 app.config.errorHandler = errorHandler
 
