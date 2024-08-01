@@ -53,21 +53,21 @@
 </template>
 
 <script setup lang="ts" name="UserDrawer">
-import { ref, reactive } from "vue"
-import { genderType } from "@/utils/serviceDict"
-import { ElMessage, FormInstance } from "element-plus"
-import { User } from "@/api/interface"
-import UploadImg from "@/components/Upload/Img.vue"
-import UploadImgs from "@/components/Upload/Imgs.vue"
+import { ref, reactive } from 'vue'
+import { genderType } from '@/utils/serviceDict'
+import { ElMessage, FormInstance } from 'element-plus'
+import { User } from '@/api/interface'
+import UploadImg from '@/components/Upload/Img.vue'
+import UploadImgs from '@/components/Upload/Imgs.vue'
 
 const rules = reactive({
-    avatar: [{ required: true, message: "请上传用户头像" }],
-    photo: [{ required: true, message: "请上传用户照片" }],
-    username: [{ required: true, message: "请填写用户姓名" }],
-    gender: [{ required: true, message: "请选择性别" }],
-    idCard: [{ required: true, message: "请填写身份证号" }],
-    email: [{ required: true, message: "请填写邮箱" }],
-    address: [{ required: true, message: "请填写居住地址" }]
+    avatar: [{ required: true, message: '请上传用户头像' }],
+    photo: [{ required: true, message: '请上传用户照片' }],
+    username: [{ required: true, message: '请填写用户姓名' }],
+    gender: [{ required: true, message: '请选择性别' }],
+    idCard: [{ required: true, message: '请填写身份证号' }],
+    email: [{ required: true, message: '请填写邮箱' }],
+    address: [{ required: true, message: '请填写居住地址' }]
 })
 
 interface DrawerProps {
@@ -81,7 +81,7 @@ interface DrawerProps {
 const drawerVisible = ref(false)
 const drawerProps = ref<DrawerProps>({
     isView: false,
-    title: "",
+    title: '',
     row: {}
 })
 

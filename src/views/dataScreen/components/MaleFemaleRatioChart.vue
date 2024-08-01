@@ -17,30 +17,30 @@
 </template>
 
 <script setup lang="ts">
-import { ECharts, EChartsOption, init } from "echarts"
+import { ECharts, EChartsOption, init } from 'echarts'
 interface ChartProp {
     man: number
     woman: number
 }
 const initChart = (data: ChartProp): ECharts => {
-    const charEle = document.getElementById("MaleFemaleRatioChart") as HTMLElement
+    const charEle = document.getElementById('MaleFemaleRatioChart') as HTMLElement
     const charEch: ECharts = init(charEle)
     const option: EChartsOption = {
         xAxis: {
-            type: "value",
+            type: 'value',
             show: false
         },
         grid: {
             left: 0,
-            top: "30px",
+            top: '30px',
             bottom: 0,
             right: 0
         },
         yAxis: [
             {
-                type: "category",
-                position: "left",
-                data: ["男生"],
+                type: 'category',
+                position: 'left',
+                data: ['男生'],
                 axisTick: {
                     show: false
                 },
@@ -52,9 +52,9 @@ const initChart = (data: ChartProp): ECharts => {
                 }
             },
             {
-                type: "category",
-                position: "right",
-                data: ["女士"],
+                type: 'category',
+                position: 'right',
+                data: ['女士'],
                 axisTick: {
                     show: false
                 },
@@ -66,13 +66,13 @@ const initChart = (data: ChartProp): ECharts => {
                     padding: [0, 0, 40, -60],
                     fontSize: 12,
                     lineHeight: 60,
-                    color: "rgba(255, 255, 255, 0.9)",
-                    formatter: "{value}" + data.woman * 100 + "%",
+                    color: 'rgba(255, 255, 255, 0.9)',
+                    formatter: '{value}' + data.woman * 100 + '%',
                     rich: {
                         a: {
-                            color: "transparent",
+                            color: 'transparent',
                             lineHeight: 30,
-                            fontFamily: "digital",
+                            fontFamily: 'digital',
                             fontSize: 12
                         }
                     }
@@ -81,18 +81,18 @@ const initChart = (data: ChartProp): ECharts => {
         ],
         series: [
             {
-                type: "bar",
+                type: 'bar',
                 barWidth: 20,
                 data: [data.man],
                 z: 20,
                 itemStyle: {
                     borderRadius: 10,
-                    color: "#007AFE"
+                    color: '#007AFE'
                 },
                 label: {
                     show: true,
-                    color: "#E7E8ED",
-                    position: "insideLeft",
+                    color: '#E7E8ED',
+                    position: 'insideLeft',
                     offset: [0, -20],
                     fontSize: 12,
                     formatter: () => {
@@ -101,18 +101,18 @@ const initChart = (data: ChartProp): ECharts => {
                 }
             },
             {
-                type: "bar",
+                type: 'bar',
                 barWidth: 20,
                 data: [1],
-                barGap: "-100%",
+                barGap: '-100%',
                 itemStyle: {
                     borderRadius: 10,
-                    color: "#FF4B7A"
+                    color: '#FF4B7A'
                 },
                 label: {
                     show: true,
-                    color: "#E7E8ED",
-                    position: "insideRight",
+                    color: '#E7E8ED',
+                    position: 'insideRight',
                     offset: [0, -20],
                     fontSize: 12,
                     formatter: () => {
@@ -147,7 +147,7 @@ defineExpose({
             align-items: center;
             width: 110px;
             height: 115px;
-            background: url("../images/man-bg.png") no-repeat;
+            background: url('../images/man-bg.png') no-repeat;
             background-size: 100% 100%;
             img {
                 width: 60px;
@@ -161,7 +161,7 @@ defineExpose({
             }
         }
         .woman {
-            background: url("../images/woman-bg.png") no-repeat;
+            background: url('../images/woman-bg.png') no-repeat;
         }
     }
     .echarts {

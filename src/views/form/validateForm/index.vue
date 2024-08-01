@@ -45,69 +45,69 @@
 </template>
 
 <script setup lang="ts" name="dynamicForm">
-import { reactive, ref } from "vue"
-import { checkPhoneNumber } from "@/utils/eleValidate"
-import type { FormInstance, FormRules } from "element-plus"
-import { ElMessage } from "element-plus"
+import { reactive, ref } from 'vue'
+import { checkPhoneNumber } from '@/utils/eleValidate'
+import type { FormInstance, FormRules } from 'element-plus'
+import { ElMessage } from 'element-plus'
 
 const ruleFormRef = ref<FormInstance>()
 const ruleForm = reactive({
-    name: "Geeker-Admin",
-    phone: "",
-    region: "",
-    date1: "",
-    date2: "",
+    name: 'Geeker-Admin',
+    phone: '',
+    region: '',
+    date1: '',
+    date2: '',
     delivery: false,
-    resource: "",
-    desc: ""
+    resource: '',
+    desc: ''
 })
 
 const rules = reactive<FormRules>({
     name: [
-        { required: true, message: "Please input Activity name", trigger: "blur" },
-        { min: 3, max: 5, message: "Length should be 3 to 5", trigger: "blur" }
+        { required: true, message: 'Please input Activity name', trigger: 'blur' },
+        { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }
     ],
-    phone: [{ required: true, validator: checkPhoneNumber, trigger: "blur" }],
+    phone: [{ required: true, validator: checkPhoneNumber, trigger: 'blur' }],
     region: [
         {
             required: true,
-            message: "Please select Activity zone",
-            trigger: "change"
+            message: 'Please select Activity zone',
+            trigger: 'change'
         }
     ],
     date1: [
         {
-            type: "date",
+            type: 'date',
             required: true,
-            message: "Please pick a date",
-            trigger: "change"
+            message: 'Please pick a date',
+            trigger: 'change'
         }
     ],
     date2: [
         {
-            type: "date",
+            type: 'date',
             required: true,
-            message: "Please pick a time",
-            trigger: "change"
+            message: 'Please pick a time',
+            trigger: 'change'
         }
     ],
     resource: [
         {
             required: true,
-            message: "Please select activity resource",
-            trigger: "change"
+            message: 'Please select activity resource',
+            trigger: 'change'
         }
     ],
-    desc: [{ required: true, message: "Please input activity form", trigger: "blur" }]
+    desc: [{ required: true, message: 'Please input activity form', trigger: 'blur' }]
 })
 
 const submitForm = async (formEl: FormInstance | undefined) => {
     if (!formEl) return
     await formEl.validate((valid, fields) => {
         if (valid) {
-            ElMessage.success("提交的数据为 : " + JSON.stringify(ruleForm))
+            ElMessage.success('提交的数据为 : ' + JSON.stringify(ruleForm))
         } else {
-            console.log("error submit!", fields)
+            console.log('error submit!', fields)
         }
     })
 }
@@ -119,5 +119,5 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

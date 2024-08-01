@@ -2,7 +2,7 @@
     <div>插件开发</div>
 </template>
 <script setup lang="ts">
-import { ref, reactive, getCurrentInstance } from "vue"
+import { ref, reactive, getCurrentInstance } from 'vue'
 
 // 练习使用star
 const instance = getCurrentInstance()

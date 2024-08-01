@@ -3,19 +3,19 @@
     <div ref="echartsRef" class="echarts"></div>
 </template>
 <script setup lang="ts" name="cure">
-import { ref } from "vue"
-import * as echarts from "echarts"
-import { useEcharts } from "@/hooks/useEcharts"
+import { ref } from 'vue'
+import * as echarts from 'echarts'
+import { useEcharts } from '@/hooks/useEcharts'
 
 const echartsRef = ref<HTMLElement>()
 const initChart = (data: any) => {
     const myChart: echarts.ECharts = echarts.init(echartsRef.value as HTMLElement)
     const option = {
         tooltip: {
-            trigger: "axis",
-            backgroundColor: "transparent",
+            trigger: 'axis',
+            backgroundColor: 'transparent',
             axisPointer: {
-                type: "none"
+                type: 'none'
             },
             padding: 0,
             formatter: (p: any) => {
@@ -29,11 +29,11 @@ const initChart = (data: any) => {
         },
         toolbox: {
             show: true,
-            orient: "horizontal"
+            orient: 'horizontal'
         },
         grid: {
-            left: "0",
-            right: "0"
+            left: '0',
+            right: '0'
         },
         dataZoom: [
             {
@@ -44,14 +44,14 @@ const initChart = (data: any) => {
                 startValue: 0, //数据窗口范围的起始数值
                 endValue: 9, //数据窗口范围的结束数值
                 handleStyle: {
-                    color: "#6b9dfe"
+                    color: '#6b9dfe'
                 },
                 textStyle: {
-                    color: "transparent"
+                    color: 'transparent'
                 }
             },
             {
-                type: "inside",
+                type: 'inside',
                 show: true,
                 height: 0,
                 zoomLock: true //控制伸缩
@@ -59,7 +59,7 @@ const initChart = (data: any) => {
         ],
         xAxis: [
             {
-                type: "category",
+                type: 'category',
                 data: data.map((val: any) => {
                     return {
                         value: val.spotName
@@ -72,16 +72,16 @@ const initChart = (data: any) => {
                     // interval: time > 4 ? 27 : 0,
                     margin: 20,
                     interval: 0,
-                    color: "#a1a1a1",
+                    color: '#a1a1a1',
                     fontSize: 14,
                     formatter: function (name: string) {
                         undefined
-                        return name.length > 8 ? name.slice(0, 8) + "..." : name
+                        return name.length > 8 ? name.slice(0, 8) + '...' : name
                     }
                 },
                 axisLine: {
                     lineStyle: {
-                        color: "#c0c0c0"
+                        color: '#c0c0c0'
                     }
                 }
             }
@@ -98,18 +98,18 @@ const initChart = (data: any) => {
                 splitLine: {
                     show: true,
                     lineStyle: {
-                        color: "#c0c0c0"
+                        color: '#c0c0c0'
                     }
                 },
                 axisLabel: {
-                    color: "#a1a1a1",
+                    color: '#a1a1a1',
                     fontSize: 16,
                     fontWeight: 400,
                     formatter: function (value: number) {
                         if (value === 0) {
                             return value
                         } else if (value >= 10000) {
-                            return value / 10000 + "w"
+                            return value / 10000 + 'w'
                         }
                         return value
                     }
@@ -118,21 +118,21 @@ const initChart = (data: any) => {
         ],
         series: [
             {
-                name: "Direct",
-                type: "bar",
+                name: 'Direct',
+                type: 'bar',
                 data: data.map((val: any) => {
                     return {
                         value: val.value
                     }
                 }),
-                barWidth: "45px",
+                barWidth: '45px',
                 itemStyle: {
-                    color: "#C5D8FF",
+                    color: '#C5D8FF',
                     borderRadius: [12, 12, 0, 0]
                 },
                 emphasis: {
                     itemStyle: {
-                        color: "#6B9DFE"
+                        color: '#6B9DFE'
                     }
                 }
             }

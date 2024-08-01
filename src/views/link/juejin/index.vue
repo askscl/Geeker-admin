@@ -13,5 +13,5 @@
 <script setup lang="ts" name="juejin"></script>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

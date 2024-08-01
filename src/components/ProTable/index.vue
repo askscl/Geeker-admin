@@ -92,19 +92,19 @@
 </template>
 
 <script setup lang="ts" name="ProTable">
-import { ref, watch, computed, provide, onMounted } from "vue"
-import { ElTable } from "element-plus"
-import { useTable } from "@/hooks/useTable"
-import { useSelection } from "@/hooks/useSelection"
-import { BreakPoint } from "@/components/Grid/interface"
-import { ColumnProps } from "@/components/ProTable/interface"
-import { Refresh, Printer, Operation, Search } from "@element-plus/icons-vue"
-import { filterEnum, formatValue, handleProp, handleRowAccordingToProp } from "@/utils"
-import SearchForm from "@/components/SearchForm/index.vue"
-import Pagination from "./components/Pagination.vue"
-import ColSetting from "./components/ColSetting.vue"
-import TableColumn from "./components/TableColumn.vue"
-import printJS from "print-js"
+import { ref, watch, computed, provide, onMounted } from 'vue'
+import { ElTable } from 'element-plus'
+import { useTable } from '@/hooks/useTable'
+import { useSelection } from '@/hooks/useSelection'
+import { BreakPoint } from '@/components/Grid/interface'
+import { ColumnProps } from '@/components/ProTable/interface'
+import { Refresh, Printer, Operation, Search } from '@element-plus/icons-vue'
+import { filterEnum, formatValue, handleProp, handleRowAccordingToProp } from '@/utils'
+import SearchForm from '@/components/SearchForm/index.vue'
+import Pagination from './components/Pagination.vue'
+import ColSetting from './components/ColSetting.vue'
+import TableColumn from './components/TableColumn.vue'
+import printJS from 'print-js'
 
 export interface ProTableProps {
     columns: ColumnProps[] // 列配置项  ==> 必传
@@ -130,7 +130,7 @@ const props = withDefaults(defineProps<ProTableProps>(), {
     initParam: {},
     border: true,
     toolButton: true,
-    rowKey: "id",
+    rowKey: 'id',
     searchCol: () => ({ xs: 1, sm: 2, md: 2, lg: 3, xl: 4 })
 })
 
@@ -161,11 +161,11 @@ const tableColumns = ref<ColumnProps[]>(props.columns)
 
 // 定义 enumMap 存储 enum 值（避免异步请求无法格式化单元格内容 || 无法填充搜索下拉选择）
 const enumMap = ref(new Map<string, { [key: string]: any }[]>())
-provide("enumMap", enumMap)
+provide('enumMap', enumMap)
 const setEnumMap = async (col: ColumnProps) => {
     if (!col.enum) return
     // 如果当前 enum 为后台数据需要请求数据，则调用该请求接口，并存储到 enumMap
-    if (typeof col.enum !== "function") return enumMap.value.set(col.prop!, col.enum!)
+    if (typeof col.enum !== 'function') return enumMap.value.set(col.prop!, col.enum!)
     const { data } = await col.enum()
     enumMap.value.set(col.prop!, data)
 }
@@ -208,7 +208,7 @@ searchColumns.sort((a, b) => a.search!.order! - b.search!.order!)
 // 列设置 ==> 过滤掉不需要设置的列
 const colRef = ref()
 const colSetting = tableColumns.value!.filter(
-    item => !["selection", "index", "expand"].includes(item.type!) && item.prop !== "operation" && item.isShow
+    item => !['selection', 'index', 'expand'].includes(item.type!) && item.prop !== 'operation' && item.isShow
 )
 const openColSetting = () => colRef.value.openColSetting()
 
@@ -219,12 +219,12 @@ const printData = computed(() => {
     const printDataList = JSON.parse(JSON.stringify(selectedList.value.length ? selectedList.value : handleData))
     // 找出需要转换数据的列（有 enum || 多级 prop && 需要根据 enum 格式化）
     const needTransformCol = flatColumns.value!.filter(
-        item => (item.enum || (item.prop && item.prop.split(".").length > 1)) && item.isFilterEnum
+        item => (item.enum || (item.prop && item.prop.split('.').length > 1)) && item.isFilterEnum
     )
     needTransformCol.forEach(colItem => {
         printDataList.forEach((tableItem: { [key: string]: any }) => {
             tableItem[handleProp(colItem.prop!)] =
-                colItem.prop!.split(".").length > 1 && !colItem.enum
+                colItem.prop!.split('.').length > 1 && !colItem.enum
                     ? formatValue(handleRowAccordingToProp(tableItem, colItem.prop!))
                     : filterEnum(
                           handleRowAccordingToProp(tableItem, colItem.prop!),
@@ -242,17 +242,17 @@ const printData = computed(() => {
 // 打印表格数据（💥 多级表头数据打印时，只能扁平化成一维数组，printJs 不支持多级表头打印）
 const print = () => {
     const header = `<div style="text-align: center"><h2>${props.title}</h2></div>`
-    const gridHeaderStyle = "border: 1px solid #ebeef5;height: 45px;color: #232425;text-align: center;background-color: #fafafa;"
-    const gridStyle = "border: 1px solid #ebeef5;height: 40px;color: #494b4e;text-align: center"
+    const gridHeaderStyle = 'border: 1px solid #ebeef5;height: 45px;color: #232425;text-align: center;background-color: #fafafa;'
+    const gridStyle = 'border: 1px solid #ebeef5;height: 40px;color: #494b4e;text-align: center'
     printJS({
         printable: printData.value,
         header: props.title && header,
         properties: flatColumns
             .value!.filter(
-                item => !["selection", "index", "expand"].includes(item.type!) && item.isShow && item.prop !== "operation"
+                item => !['selection', 'index', 'expand'].includes(item.type!) && item.isShow && item.prop !== 'operation'
             )
             .map((item: ColumnProps) => ({ field: handleProp(item.prop!), displayName: item.label })),
-        type: "json",
+        type: 'json',
         gridHeaderStyle,
         gridStyle
     })

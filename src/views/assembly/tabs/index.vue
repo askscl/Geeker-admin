@@ -26,13 +26,13 @@
 </template>
 
 <script setup lang="ts" name="tabs">
-import { inject, nextTick, ref } from "vue"
-import { HOME_URL } from "@/config"
-import { useRoute, useRouter } from "vue-router"
-import { useTabsStore } from "@/stores/modules/tabs"
-import { useGlobalStore } from "@/stores/modules/global"
-import { useKeepAliveStore } from "@/stores/modules/keepAlive"
-import { Refresh, FullScreen, Remove, CircleClose, FolderDelete, Promotion } from "@element-plus/icons-vue"
+import { inject, nextTick, ref } from 'vue'
+import { HOME_URL } from '@/config'
+import { useRoute, useRouter } from 'vue-router'
+import { useTabsStore } from '@/stores/modules/tabs'
+import { useGlobalStore } from '@/stores/modules/global'
+import { useKeepAliveStore } from '@/stores/modules/keepAlive'
+import { Refresh, FullScreen, Remove, CircleClose, FolderDelete, Promotion } from '@element-plus/icons-vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -41,7 +41,7 @@ const globalStore = useGlobalStore()
 const keepAliveStore = useKeepAliveStore()
 
 // 刷新当前页
-const refreshCurrentPage: Function = inject("refresh") as Function
+const refreshCurrentPage: Function = inject('refresh') as Function
 const refresh = () => {
     setTimeout(() => {
         keepAliveStore.removeKeepAliveName(route.name as string)
@@ -54,14 +54,14 @@ const refresh = () => {
 }
 
 // 设置 Tab 标题
-const tabsTitle = ref("")
+const tabsTitle = ref('')
 const editTabsTitle = () => {
     tabStore.setTabsTitle(tabsTitle.value)
 }
 
 // 当前页全屏
 const maximize = () => {
-    globalStore.setGlobalState("maximize", true)
+    globalStore.setGlobalState('maximize', true)
 }
 
 // 关闭当前页

@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts" name="SelectIcon">
-import { ref, computed } from "vue"
-import * as Icons from "@element-plus/icons-vue"
+import { ref, computed } from 'vue'
+import * as Icons from '@element-plus/icons-vue'
 
 interface SelectIconProps {
     iconValue: string
@@ -40,10 +40,10 @@ interface SelectIconProps {
 }
 
 const props = withDefaults(defineProps<SelectIconProps>(), {
-    iconValue: "",
-    title: "请选择图标",
+    iconValue: '',
+    title: '请选择图标',
     clearable: true,
-    placeholder: "请选择图标"
+    placeholder: '请选择图标'
 })
 
 // 重新接收一下，防止打包后 clearable 报错
@@ -54,24 +54,24 @@ const dialogVisible = ref(false)
 const openDialog = () => (dialogVisible.value = true)
 
 // 选择图标(触发更新父组件数据)
-const emit = defineEmits(["update:iconValue"])
+const emit = defineEmits(['update:iconValue'])
 const selectIcon = (item: any) => {
     dialogVisible.value = false
     valueIcon.value = item.name
-    emit("update:iconValue", item.name)
+    emit('update:iconValue', item.name)
     setTimeout(() => inputRef.value.blur(), 0)
 }
 
 // 清空图标
 const inputRef = ref()
 const clearIcon = () => {
-    valueIcon.value = ""
-    emit("update:iconValue", "")
+    valueIcon.value = ''
+    emit('update:iconValue', '')
     setTimeout(() => inputRef.value.blur(), 0)
 }
 
 // 监听搜索框值
-const inputValue = ref("")
+const inputValue = ref('')
 const customIcons: { [key: string]: any } = Icons
 const iconsList = computed((): { [key: string]: any } => {
     if (!inputValue.value) return Icons
@@ -84,5 +84,5 @@ const iconsList = computed((): { [key: string]: any } => {
 </script>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

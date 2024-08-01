@@ -46,8 +46,8 @@
 </template>
 
 <script setup lang="ts" name="dynamicForm">
-import { reactive, ref } from "vue"
-import type { FormInstance } from "element-plus"
+import { reactive, ref } from 'vue'
+import type { FormInstance } from 'element-plus'
 
 const formRef = ref<FormInstance>()
 const dynamicValidateForm = reactive<{
@@ -57,10 +57,10 @@ const dynamicValidateForm = reactive<{
     domains: [
         {
             key: 1,
-            value: ""
+            value: ''
         }
     ],
-    email: ""
+    email: ''
 })
 
 interface DomainItem {
@@ -78,7 +78,7 @@ const removeDomain = (item: DomainItem) => {
 const addDomain = () => {
     dynamicValidateForm.domains.push({
         key: Date.now(),
-        value: ""
+        value: ''
     })
 }
 
@@ -86,9 +86,9 @@ const submitForm = (formEl: FormInstance | undefined) => {
     if (!formEl) return
     formEl.validate(valid => {
         if (valid) {
-            console.log("submit!")
+            console.log('submit!')
         } else {
-            console.log("error submit!")
+            console.log('error submit!')
             return false
         }
     })
@@ -101,5 +101,5 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style scoped lang="scss">
-@import "./index.scss";
+@import './index.scss';
 </style>

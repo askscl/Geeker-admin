@@ -6,8 +6,8 @@
 </template>
 
 <script setup lang="ts" name="tabsDetail">
-import { useRoute } from "vue-router"
-import { useTabsStore } from "@/stores/modules/tabs"
+import { useRoute } from 'vue-router'
+import { useTabsStore } from '@/stores/modules/tabs'
 
 const route = useRoute()
 const tabStore = useTabsStore()

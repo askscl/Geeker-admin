@@ -37,18 +37,18 @@
     </div>
 </template>
 <script setup lang="ts" name="useTreeFilter">
-import { ref, reactive } from "vue"
-import { User } from "@/api/interface"
-import { useRouter } from "vue-router"
-import { ElMessage, ElMessageBox } from "element-plus"
-import { useHandleData } from "@/hooks/useHandleData"
-import { useDownload } from "@/hooks/useDownload"
-import ProTable from "@/components/ProTable/index.vue"
-import TreeFilter from "@/components/TreeFilter/index.vue"
-import ImportExcel from "@/components/ImportExcel/index.vue"
-import UserDrawer from "@/views/proTable/components/UserDrawer.vue"
-import { ProTableInstance, ColumnProps } from "@/components/ProTable/interface"
-import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from "@element-plus/icons-vue"
+import { ref, reactive } from 'vue'
+import { User } from '@/api/interface'
+import { useRouter } from 'vue-router'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { useHandleData } from '@/hooks/useHandleData'
+import { useDownload } from '@/hooks/useDownload'
+import ProTable from '@/components/ProTable/index.vue'
+import TreeFilter from '@/components/TreeFilter/index.vue'
+import ImportExcel from '@/components/ImportExcel/index.vue'
+import UserDrawer from '@/views/proTable/components/UserDrawer.vue'
+import { ProTableInstance, ColumnProps } from '@/components/ProTable/interface'
+import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from '@element-plus/icons-vue'
 import {
     getUserList,
     deleteUser,
@@ -60,7 +60,7 @@ import {
     getUserStatus,
     getUserGender,
     getUserDepartment
-} from "@/api/modules/user"
+} from '@/api/modules/user'
 
 const router = useRouter()
 
@@ -73,43 +73,43 @@ const toDetail = () => {
 const proTable = ref<ProTableInstance>()
 
 // 如果表格需要初始化请求参数，直接定义传给 ProTable(之后每次请求都会自动带上该参数，此参数更改之后也会一直带上，改变此参数会自动刷新表格数据)
-const initParam = reactive({ departmentId: "1" })
+const initParam = reactive({ departmentId: '1' })
 
 // 树形筛选切换
 const changeTreeFilter = (val: string) => {
-    ElMessage.success("请注意查看请求参数变化 🤔")
+    ElMessage.success('请注意查看请求参数变化 🤔')
     proTable.value!.pageable.pageNum = 1
     initParam.departmentId = val
 }
 
 // 表格配置项
 const columns: ColumnProps<User.ResUserList>[] = [
-    { type: "index", label: "#", width: 80 },
-    { prop: "username", label: "用户姓名", width: 120, search: { el: "input" } },
+    { type: 'index', label: '#', width: 80 },
+    { prop: 'username', label: '用户姓名', width: 120, search: { el: 'input' } },
     {
-        prop: "gender",
-        label: "性别",
+        prop: 'gender',
+        label: '性别',
         width: 120,
         sortable: true,
         enum: getUserGender,
-        search: { el: "select" },
-        fieldNames: { label: "genderLabel", value: "genderValue" }
+        search: { el: 'select' },
+        fieldNames: { label: 'genderLabel', value: 'genderValue' }
     },
-    { prop: "idCard", label: "身份证号" },
-    { prop: "email", label: "邮箱" },
-    { prop: "address", label: "居住地址" },
+    { prop: 'idCard', label: '身份证号' },
+    { prop: 'email', label: '邮箱' },
+    { prop: 'address', label: '居住地址' },
     {
-        prop: "status",
-        label: "用户状态",
+        prop: 'status',
+        label: '用户状态',
         width: 120,
         sortable: true,
         tag: true,
         enum: getUserStatus,
-        search: { el: "select" },
-        fieldNames: { label: "userLabel", value: "userStatus" }
+        search: { el: 'select' },
+        fieldNames: { label: 'userLabel', value: 'userStatus' }
     },
-    { prop: "createTime", label: "创建时间", width: 180 },
-    { prop: "operation", label: "操作", width: 330, fixed: "right" }
+    { prop: 'createTime', label: '创建时间', width: 180 },
+    { prop: 'operation', label: '操作', width: 330, fixed: 'right' }
 ]
 
 // 删除用户信息
@@ -126,8 +126,8 @@ const resetPass = async (params: User.ResUserList) => {
 
 // 导出用户列表
 const downloadFile = async () => {
-    ElMessageBox.confirm("确认导出用户数据?", "温馨提示", { type: "warning" }).then(() =>
-        useDownload(exportUserInfo, "用户列表", proTable.value?.searchParam)
+    ElMessageBox.confirm('确认导出用户数据?', '温馨提示', { type: 'warning' }).then(() =>
+        useDownload(exportUserInfo, '用户列表', proTable.value?.searchParam)
     )
 }
 
@@ -135,7 +135,7 @@ const downloadFile = async () => {
 const dialogRef = ref<InstanceType<typeof ImportExcel> | null>(null)
 const batchAdd = () => {
     const params = {
-        title: "用户",
+        title: '用户',
         tempApi: exportUserInfo,
         importApi: BatchAddUser,
         getTableList: proTable.value?.getTableList
@@ -148,9 +148,9 @@ const drawerRef = ref<InstanceType<typeof UserDrawer> | null>(null)
 const openDrawer = (title: string, row: Partial<User.ResUserList> = {}) => {
     const params = {
         title,
-        isView: title === "查看",
+        isView: title === '查看',
         row: { ...row },
-        api: title === "新增" ? addUser : title === "编辑" ? editUser : undefined,
+        api: title === '新增' ? addUser : title === '编辑' ? editUser : undefined,
         getTableList: proTable.value?.getTableList
     }
     drawerRef.value?.acceptParams(params)

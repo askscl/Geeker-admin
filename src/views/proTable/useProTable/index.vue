@@ -56,18 +56,18 @@
 </template>
 
 <script setup lang="tsx" name="useProTable">
-import { ref, reactive } from "vue"
-import { useRouter } from "vue-router"
-import { User } from "@/api/interface"
-import { useHandleData } from "@/hooks/useHandleData"
-import { useDownload } from "@/hooks/useDownload"
-import { useAuthButtons } from "@/hooks/useAuthButtons"
-import { ElMessage, ElMessageBox } from "element-plus"
-import ProTable from "@/components/ProTable/index.vue"
-import ImportExcel from "@/components/ImportExcel/index.vue"
-import UserDrawer from "@/views/proTable/components/UserDrawer.vue"
-import { ProTableInstance, ColumnProps, HeaderRenderScope } from "@/components/ProTable/interface"
-import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from "@element-plus/icons-vue"
+import { ref, reactive } from 'vue'
+import { useRouter } from 'vue-router'
+import { User } from '@/api/interface'
+import { useHandleData } from '@/hooks/useHandleData'
+import { useDownload } from '@/hooks/useDownload'
+import { useAuthButtons } from '@/hooks/useAuthButtons'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import ProTable from '@/components/ProTable/index.vue'
+import ImportExcel from '@/components/ImportExcel/index.vue'
+import UserDrawer from '@/views/proTable/components/UserDrawer.vue'
+import { ProTableInstance, ColumnProps, HeaderRenderScope } from '@/components/ProTable/interface'
+import { CirclePlus, Delete, EditPen, Download, Upload, View, Refresh } from '@element-plus/icons-vue'
 import {
     getUserList,
     deleteUser,
@@ -79,7 +79,7 @@ import {
     BatchAddUser,
     getUserStatus,
     getUserGender
-} from "@/api/modules/user"
+} from '@/api/modules/user'
 
 const router = useRouter()
 
@@ -121,7 +121,7 @@ const { BUTTONS } = useAuthButtons()
 // 自定义渲染表头（使用tsx语法）
 const headerRender = (scope: HeaderRenderScope<User.ResUserList>) => {
     return (
-        <el-button type="primary" onClick={() => ElMessage.success("我是通过 tsx 语法渲染的表头")}>
+        <el-button type="primary" onClick={() => ElMessage.success('我是通过 tsx 语法渲染的表头')}>
             {scope.column.label}
         </el-button>
     )
@@ -129,37 +129,37 @@ const headerRender = (scope: HeaderRenderScope<User.ResUserList>) => {
 
 // 表格配置项
 const columns: ColumnProps<User.ResUserList>[] = [
-    { type: "selection", fixed: "left", width: 80 },
-    { type: "index", label: "#", width: 80 },
-    { type: "expand", label: "Expand", width: 100 },
+    { type: 'selection', fixed: 'left', width: 80 },
+    { type: 'index', label: '#', width: 80 },
+    { type: 'expand', label: 'Expand', width: 100 },
     {
-        prop: "username",
-        label: "用户姓名",
-        search: { el: "input" },
+        prop: 'username',
+        label: '用户姓名',
+        search: { el: 'input' },
         render: scope => {
             return (
-                <el-button type="primary" link onClick={() => ElMessage.success("我是通过 tsx 语法渲染的内容")}>
+                <el-button type="primary" link onClick={() => ElMessage.success('我是通过 tsx 语法渲染的内容')}>
                     {scope.row.username}
                 </el-button>
             )
         }
     },
     {
-        prop: "gender",
-        label: "性别",
+        prop: 'gender',
+        label: '性别',
         // 字典数据
         // enum: genderType,
         // 字典请求不带参数
         enum: getUserGender,
         // 字典请求携带参数
         // enum: () => getUserGender({ id: 1 }),
-        search: { el: "select", props: { filterable: true } },
-        fieldNames: { label: "genderLabel", value: "genderValue" }
+        search: { el: 'select', props: { filterable: true } },
+        fieldNames: { label: 'genderLabel', value: 'genderValue' }
     },
     {
         // 多级 prop
-        prop: "user.detail.age",
-        label: "年龄",
+        prop: 'user.detail.age',
+        label: '年龄',
         search: {
             // 自定义 search 显示内容
             render: ({ searchParam }) => {
@@ -173,46 +173,46 @@ const columns: ColumnProps<User.ResUserList>[] = [
             }
         }
     },
-    { prop: "idCard", label: "身份证号", search: { el: "input" } },
-    { prop: "email", label: "邮箱" },
-    { prop: "address", label: "居住地址" },
+    { prop: 'idCard', label: '身份证号', search: { el: 'input' } },
+    { prop: 'email', label: '邮箱' },
+    { prop: 'address', label: '居住地址' },
     {
-        prop: "status",
-        label: "用户状态",
+        prop: 'status',
+        label: '用户状态',
         enum: getUserStatus,
-        search: { el: "tree-select", props: { filterable: true } },
-        fieldNames: { label: "userLabel", value: "userStatus" },
+        search: { el: 'tree-select', props: { filterable: true } },
+        fieldNames: { label: 'userLabel', value: 'userStatus' },
         render: scope => {
             return (
                 <>
                     {BUTTONS.value.status ? (
                         <el-switch
                             model-value={scope.row.status}
-                            active-text={scope.row.status ? "启用" : "禁用"}
+                            active-text={scope.row.status ? '启用' : '禁用'}
                             active-value={1}
                             inactive-value={0}
                             onClick={() => changeStatus(scope.row)}
                         />
                     ) : (
-                        <el-tag type={scope.row.status ? "success" : "danger"}>{scope.row.status ? "启用" : "禁用"}</el-tag>
+                        <el-tag type={scope.row.status ? 'success' : 'danger'}>{scope.row.status ? '启用' : '禁用'}</el-tag>
                     )}
                 </>
             )
         }
     },
     {
-        prop: "createTime",
-        label: "创建时间",
+        prop: 'createTime',
+        label: '创建时间',
         headerRender,
         width: 180,
         search: {
-            el: "date-picker",
+            el: 'date-picker',
             span: 2,
-            props: { type: "datetimerange", valueFormat: "YYYY-MM-DD HH:mm:ss" },
-            defaultValue: ["2022-11-12 11:35:00", "2022-12-12 11:35:00"]
+            props: { type: 'datetimerange', valueFormat: 'YYYY-MM-DD HH:mm:ss' },
+            defaultValue: ['2022-11-12 11:35:00', '2022-12-12 11:35:00']
         }
     },
-    { prop: "operation", label: "操作", fixed: "right", width: 330 }
+    { prop: 'operation', label: '操作', fixed: 'right', width: 330 }
 ]
 
 // 删除用户信息
@@ -223,7 +223,7 @@ const deleteAccount = async (params: User.ResUserList) => {
 
 // 批量删除用户信息
 const batchDelete = async (id: string[]) => {
-    await useHandleData(deleteUser, { id }, "删除所选用户信息")
+    await useHandleData(deleteUser, { id }, '删除所选用户信息')
     proTable.value?.clearSelection()
     proTable.value?.getTableList()
 }
@@ -242,8 +242,8 @@ const changeStatus = async (row: User.ResUserList) => {
 
 // 导出用户列表
 const downloadFile = async () => {
-    ElMessageBox.confirm("确认导出用户数据?", "温馨提示", { type: "warning" }).then(() =>
-        useDownload(exportUserInfo, "用户列表", proTable.value?.searchParam)
+    ElMessageBox.confirm('确认导出用户数据?', '温馨提示', { type: 'warning' }).then(() =>
+        useDownload(exportUserInfo, '用户列表', proTable.value?.searchParam)
     )
 }
 
@@ -251,7 +251,7 @@ const downloadFile = async () => {
 const dialogRef = ref<InstanceType<typeof ImportExcel> | null>(null)
 const batchAdd = () => {
     const params = {
-        title: "用户",
+        title: '用户',
         tempApi: exportUserInfo,
         importApi: BatchAddUser,
         getTableList: proTable.value?.getTableList
@@ -264,9 +264,9 @@ const drawerRef = ref<InstanceType<typeof UserDrawer> | null>(null)
 const openDrawer = (title: string, row: Partial<User.ResUserList> = {}) => {
     const params = {
         title,
-        isView: title === "查看",
+        isView: title === '查看',
         row: { ...row },
-        api: title === "新增" ? addUser : title === "编辑" ? editUser : undefined,
+        api: title === '新增' ? addUser : title === '编辑' ? editUser : undefined,
         getTableList: proTable.value?.getTableList
     }
     drawerRef.value?.acceptParams(params)

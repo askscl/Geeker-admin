@@ -12,13 +12,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue"
-import Child from "./components/Child.vue"
-import Sun from "./components/Sun.vue"
+import { ref, reactive } from 'vue'
+import Child from './components/Child.vue'
+import Sun from './components/Sun.vue'
 
 const isShow = ref<boolean>(false)
-const twoVal = ref<string>("我是文字")
-const threeVal = ref<string>("adfd")
+const twoVal = ref<string>('我是文字')
+const threeVal = ref<string>('adfd')
 </script>
 
 <style scoped></style>

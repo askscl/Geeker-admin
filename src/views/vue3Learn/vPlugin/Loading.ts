@@ -1,10 +1,9 @@
-import { localGet } from "@/utils"
-import { createVNode, render, VNode, App } from "vue"
-import Loading from "./Loading.vue"
+import { localGet } from '@/utils'
+import { createVNode, render, VNode, App } from 'vue'
+import Loading from './Loading.vue'
 
 export default {
     install(app: App) {
-
         //createVNode vue提供的底层方法 可以给我们组件创建一个虚拟DOM 也就是Vnode
         const vnode: VNode = createVNode(Loading)
 

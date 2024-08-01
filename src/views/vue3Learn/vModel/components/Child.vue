@@ -9,24 +9,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref, reactive } from "vue"
+import { ref, reactive } from 'vue'
 
 // defineProps<{
 //     modelvalue: boolean
 // }>()
 // const modelValue = defineModel()
 // console.log(modelValue)
-const modelValue = defineModel("modelValue")
-const testVal = defineModel("testVal")
-const emit = defineEmits(["update:modelValue", "update:testVal"])
+const modelValue = defineModel('modelValue')
+const testVal = defineModel('testVal')
+const emit = defineEmits(['update:modelValue', 'update:testVal'])
 
 const close = () => {
-    emit("update:modelValue", false)
+    emit('update:modelValue', false)
 }
 
 const change = (e: Event) => {
     const target = e.target as HTMLInputElement
-    emit("update:testVal", target.value)
+    emit('update:testVal', target.value)
 }
 </script>
 

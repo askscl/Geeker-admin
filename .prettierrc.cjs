@@ -10,7 +10,7 @@ module.exports = {
     // 结尾不用分号 (true：有，false：没有)
     semi: false,
     // 使用单引号 (true：单引号，false：双引号)
-    singleQuote: false,
+    singleQuote: true,
     // 在对象字面量中决定是否将属性名用引号括起来 可选值 "<as-needed|consistent|preserve>"
     quoteProps: "as-needed",
     // 在JSX中使用单引号而不是双引号 (true：单引号，false：双引号)
