@@ -60,7 +60,7 @@
                 {
                     "path": "/vue3Learn/vDirective",
                     "name": "vDirective",
-                    "component": "/vue3Learn/vDirective/vDirective",
+                    "redirect": "/vue3Learn/vDirective/vDirective",
                     "meta": {
                         "icon": "Menu",
                         "title": "自定义指令",
@@ -69,7 +69,37 @@
                         "isFull": false,
                         "isAffix": false,
                         "isKeepAlive": false
-                    }
+                    },
+                    "children": [
+                        {
+                            "path": "/vue3Learn/vDirective/vDir",
+                            "name": "vDir",
+                            "component": "/vue3Learn/vDirective/vDirective",
+                            "meta": {
+                                "icon": "Menu",
+                                "title": "自定义指令",
+                                "isLink": "",
+                                "isHide": false,
+                                "isFull": false,
+                                "isAffix": false,
+                                "isKeepAlive": true
+                            }
+                        },
+                        {
+                            "path": "/vue3Learn/vDirective/vMove",
+                            "name": "vMove",
+                            "component": "/vue3Learn/vDirective/vMove",
+                            "meta": {
+                                "icon": "Menu",
+                                "title": "拖拽指令",
+                                "isLink": "",
+                                "isHide": false,
+                                "isFull": false,
+                                "isAffix": false,
+                                "isKeepAlive": true
+                            }
+                        }
+                    ]
                 },
                 {
                     "path": "/vue3Learn/test",

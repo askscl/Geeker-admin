@@ -1,7 +1,7 @@
 <template>
     <div>
         <button @click="flag = !flag">切换</button>
-        <div v-move:aName.preMax="{ background: 'gray', flag: flag }" class="div_box"></div>
+        <div v-dir:aName.preMax="{ background: 'gray', flag: flag }" class="div_box"></div>
     </div>
 </template>
 
@@ -13,7 +13,7 @@ let flag = ref<boolean>(true)
 type Binding = {
     background: string
 }
-const vMove: Directive = {
+const vDir: Directive = {
     created() {
         console.log('created')
     },
