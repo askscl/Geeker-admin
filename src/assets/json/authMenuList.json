@@ -102,6 +102,20 @@
                     ]
                 },
                 {
+                    "path": "/vue3Learn/cssModule",
+                    "name": "cssModule",
+                    "component": "/vue3Learn/cssModule/cssModule",
+                    "meta": {
+                        "icon": "Menu",
+                        "title": "cssModule",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": false
+                    }
+                },
+                {
                     "path": "/vue3Learn/test",
                     "name": "test",
                     "component": "/vue3Learn/test/index",
