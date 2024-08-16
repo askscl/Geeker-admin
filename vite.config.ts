@@ -14,9 +14,9 @@ const __APP_INFO__ = {
 
 // @see: https://vitejs.dev/config/
 export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
-    const root = process.cwd();
+    const root = process.cwd(); //获取项目根目录
     const env = loadEnv(mode, root);
-    const viteEnv = wrapperEnv(env);
+    const viteEnv = wrapperEnv(env); // 获取环境变量
 
     return {
         base: viteEnv.VITE_PUBLIC_PATH, // /
