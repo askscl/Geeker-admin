@@ -1,6 +1,8 @@
 <template>
-    <div :class="$style.red">我是内容</div>
-    <div :class="[zzK.green, zzK.border]">我是内容2</div>
+    <div>
+        <div :class="$style.red">我是内容</div>
+        <div :class="[zzK.green, zzK.border]">我是内容2</div>
+    </div>
 </template>
 
 <script setup lang="ts">
