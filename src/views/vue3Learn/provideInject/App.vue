@@ -24,6 +24,6 @@ provide('boxColor', boxColor)
 .box {
     width: 100px;
     height: 100px;
-    background-color: v-bind('boxColor');
+    background-color: v-bind(boxColor);
 }
 </style>
