@@ -60,6 +60,27 @@ app.use(myI18, {
 })
 //练习使用end
 
+// 自定义全局函数及变量star
+declare module 'vue' {
+    export interface ComponentCustomProperties {
+        $myVar: string
+        $myFilters: {
+            format<T>(str: T): string
+        }
+        $myMethod: (str: string) => string
+    }
+}
+app.config.globalProperties.$myVar = '我是全局变量'
+app.config.globalProperties.$myFilters = {
+    format<T>(str: T) {
+        return `jix-${str}`
+    }
+}
+app.config.globalProperties.$myMethod = (str: string) => {
+    return `hello-${str}`
+}
+// 自定义全局函数及变量end
+
 app.config.errorHandler = errorHandler
 
 // register the element Icons component
