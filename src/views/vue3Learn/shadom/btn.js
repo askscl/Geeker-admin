@@ -23,9 +23,9 @@ class Btn extends HTMLElement {
         `;
         shaDom.appendChild(this.template.content.cloneNode(true));
 
-
-
     }
+
+    // 创建元素
     h(el) {
         return document.createElement(el);
     }
