@@ -3,6 +3,8 @@
 class Btn extends HTMLElement {
     constructor() {
         super();
+
+        // 表示 shadow DOM 子树的根节点。
         const shaDom = this.attachShadow({ mode: 'open' });
 
         // 方式一
@@ -31,21 +33,23 @@ class Btn extends HTMLElement {
     }
 
     // 生命周期
-    // 当元素被插入到文档中时，会调用这个方法
+    //当自定义元素第一次被连接到文档 DOM 时被调用。
     connectedCallback() {
-        console.log('connectedCallback');
+        console.log('我已经插入了！！！嗷呜')
     }
-    // 当元素从文档中移除时，会调用这个方法
+
+    //当自定义元素与文档 DOM 断开连接时被调用。
     disconnectedCallback() {
-        console.log('disconnectedCallback');
+        console.log('我已经断开了！！！嗷呜')
     }
-    // 当自定义元素被移动到新文档时被调用
+
+    //当自定义元素被移动到新文档时被调用
     adoptedCallback() {
-        console.log('adoptedCallback');
+        console.log('我被移动了！！！嗷呜')
     }
-    // 当元素的属性发生变化时，会调用这个方法
+    //当自定义元素的一个属性被增加、移除或更改时被调用
     attributeChangedCallback() {
-        console.log('attributeChangedCallback');
+        console.log('我被改变了！！！嗷呜')
     }
 }
 
