@@ -7,6 +7,7 @@
             <p>{{ $myFilters.format('天上人间') }}</p>
             <p>{{ $myMethod('苏州') }}</p>
         </div>
+        <!-- 标记静态节点 -->
         <div class="div_box1">
             <h1>v-memo</h1>
             <!-- <div @click="select(item.id)" :key="item.id" v-for="item in arr" v-memo="[item.id == active]"> -->
@@ -26,7 +27,7 @@ const instance = getCurrentInstance()
 // console.log(instance?.proxy?.$myVar)
 // console.log(instance?.proxy?.$myMethod('苏州'))
 
-//v-memo练习:缓存数据不变的节点, 让只有数据改变的节点重新渲染
+//v-memo练习: 标记静态节点： 缓存数据不变的节点, 让只有数据改变的节点重新渲染
 const arr = reactive<any[]>([])
 for (let i = 0; i < 1000; i++) {
     arr.push({
