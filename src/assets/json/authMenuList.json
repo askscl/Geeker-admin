@@ -130,6 +130,20 @@
                     }
                 },
                 {
+                    "path": "/vue3Learn/jwt",
+                    "name": "jwt",
+                    "component": "/vue3Learn/jwt/jwt",
+                    "meta": {
+                        "icon": "Menu",
+                        "title": "jwt鉴权",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": false
+                    }
+                },
+                {
                     "path": "/vue3Learn/test",
                     "name": "test",
                     "component": "/vue3Learn/test/index",
