@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>jwt鉴权练习</h2>
-        <el-button type="primary" v-has-show="'shop:create'">创建</el-button>
+        <el-button type="primary" v-hasShow="'shop:create'">创建</el-button>
         <el-button type="primary" v-has-show="'shop:edit'">编辑</el-button>
         <el-button type="primary" v-has-show="'shop:delete'">删除</el-button>
     </div>
