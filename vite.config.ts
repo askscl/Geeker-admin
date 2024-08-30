@@ -5,6 +5,8 @@ import { createProxy } from "./build/proxy";
 import { createVitePlugins } from "./build/plugins";
 import pkg from "./package.json";
 import dayjs from "dayjs";
+import { PostcssPxToViewport } from "./src/views/vue3Learn/postcssPlugins/postcss-px-to-viewport";
+// css.postcss配置：官网搜css.preprocessorOptions
 
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
@@ -31,6 +33,9 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
             __APP_INFO__: JSON.stringify(__APP_INFO__)
         },
         css: {
+            postcss: {
+                plugins: [PostcssPxToViewport()]
+            },
             preprocessorOptions: {
                 scss: {
                     additionalData: `@import "@/styles/var.scss";`
