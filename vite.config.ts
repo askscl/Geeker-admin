@@ -8,6 +8,7 @@ import dayjs from "dayjs";
 import { PostcssPxToViewport } from "./src/views/vue3Learn/postcssPlugins/postcss-px-to-viewport";
 // css.postcss配置：官网搜css.preprocessorOptions
 
+
 const { dependencies, devDependencies, name, version } = pkg;
 const __APP_INFO__ = {
     pkg: { dependencies, devDependencies, name, version },
@@ -56,8 +57,11 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
         },
         build: {
             outDir: "dist",
+            sourcemap: false,
+            // cssCodeSplit: true, // css代码分割
+            // assetsInlineLimit: 4096, // 小于4096字节（4kb）的静态资源会被内联为base64编码
             minify: "esbuild",
-            // esbuild 打包更快，但是不能去除 console.log，terser打包慢，但能去除 console.log
+            // esbuild 打包更快，但是不能去除 console.log；terser打包慢，但能去除 console.log
             // minify: "terser",
             // terserOptions: {
             // 	compress: {
