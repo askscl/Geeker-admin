@@ -30,6 +30,20 @@
             },
             "children": [
                 {
+                    "path": "/vue3Learn/pinia",
+                    "name": "pinia",
+                    "component": "/vue3Learn/pinia/piniaTest",
+                    "meta": {
+                        "icon": "Menu",
+                        "title": "Pinia测试",
+                        "isLink": "",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": false,
+                        "isKeepAlive": false
+                    }
+                },
+                {
                     "path": "/vue3Learn/vModel",
                     "name": "vModel",
                     "component": "/vue3Learn/vModel/vModel",

@@ -35,6 +35,7 @@ import errorHandler from '@/utils/errorHandler'
 //练习使用
 import Loading from './views/vue3Learn/vPlugin/Loading'
 import myI18 from './views/vue3Learn/vPlugin/myI18'
+import piniaPersPlugin from './views/vue3Learn/pinia/piniaPersPlugin'
 
 const app = createApp(App)
 
@@ -58,6 +59,9 @@ app.use(myI18, {
         hello: '你好'
     }
 })
+
+// 自己开发的持久化插件，练习结束可注释
+pinia.use(piniaPersPlugin({ key: '开天辟地' }))
 //练习使用end
 
 // 自定义全局函数及变量star
