@@ -1,4 +1,4 @@
-// shadom用来创建一个独立的dom环境，隔离样式
+// shadom用来创建一个独立的dom环境，隔离样式--沙箱隔离样式
 //微前端的js用代理proxy隔离，样式用shadom隔离
 class Btn extends HTMLElement {
     constructor() {
