@@ -9,19 +9,16 @@ const setStorage = (key: string, value: any) => {
 }
 
 const getStorage = (key: string) => {
-    /* const value = sessionStorage.getItem(key)
-    if (value) {
-        return JSON.parse(value)
-    }
-    return null */
     return sessionStorage.getItem(key) ? JSON.parse(sessionStorage.getItem(key) as string) : null
 }
+
 type Options = {
     key?: string
 }
 
 const __piniaKey__: string = '天空之城'
 
+//利用柯里化拿到两个参数，一个options，一个PiniaPluginContext
 const piniaPersPlugin = (options: Options) => {
     return (context: PiniaPluginContext) => {
         // console.log(context)
@@ -31,6 +28,7 @@ const piniaPersPlugin = (options: Options) => {
         store.$subscribe(() => {
             //只对练习的store进行持久化
             if (store.$id === 'learnStore') {
+                // 更新数据，toRaw()将响应式数据转为普通对象
                 setStorage(myKey, toRaw(store.$state))
             }
         })
