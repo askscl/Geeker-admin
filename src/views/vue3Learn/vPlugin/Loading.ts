@@ -1,4 +1,3 @@
-import { localGet } from '@/utils'
 import { createVNode, render, VNode, App } from 'vue'
 import Loading from './Loading.vue'
 
