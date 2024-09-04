@@ -2,7 +2,7 @@
     <div>
         <div>插件开发</div>
         <div>插件开发2: {{ $translate('greetings.hello') }}</div>
-        <p>360浏览器有兼容性问题，无法正确显示，无法对body加遮罩</p>
+        <p>360浏览器有兼容性问题,无法正确显示,无法对body加遮罩</p>
     </div>
 </template>
 <script setup lang="ts">
