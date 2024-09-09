@@ -24,6 +24,7 @@
         "jsx": "preserve",
         "jsxFactory": "h",
         "jsxFragmentFactory": "Fragment",
+        "jsxImportSource": "vue", //在 Vue 中使用 TSX
         "resolveJsonModule": true,
         "isolatedModules": false, //请添加导入、导出或空的“export {}”语句来使它成为模块--设置false关闭这种提示
         "esModuleInterop": true,
