@@ -11,8 +11,8 @@
         <!-- 标记静态节点 -->
         <div class="div_box1" v-if="false">
             <h1>v-memo</h1>
-            <!-- <div @click="select(item.id)" :key="item.id" v-for="item in arr" v-memo="[item.id == active]"> -->
-            <div @click="select(item.id)" :key="item.id" v-for="item in arr">
+            <div @click="select(item.id)" :key="item.id" v-for="item in arr" v-memo="[item.id == active]">
+                <!-- <div @click="select(item.id)" :key="item.id" v-for="item in arr"> -->
                 {{ item.id }} -- selected: {{ item.id === active }}
             </div>
         </div>
