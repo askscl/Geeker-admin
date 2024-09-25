@@ -44,7 +44,7 @@ const reset = () => {
     learnStore.$reset()
 }
 
-// 依赖收集--监听读写
+// 数据监听属性--监听读写
 learnStore.$subscribe(
     (args, state) => {
         console.log(args, state)
