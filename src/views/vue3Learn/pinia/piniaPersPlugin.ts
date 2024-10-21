@@ -24,7 +24,10 @@ const piniaPersPlugin = (options: Options) => {
         // console.log(context)
         const { store } = context
         const myKey = `${options.key || __piniaKey__}` + store.$id
-        const storeData = getStorage(myKey)
+
+        const storeData = getStorage(myKey) // 初始化时，从sessionStorage中获取数据
+
+        // 数据变化时，更新sessionStorage中的数据
         store.$subscribe(() => {
             //只对练习的store进行持久化
             if (store.$id === 'learnStore') {
@@ -32,6 +35,7 @@ const piniaPersPlugin = (options: Options) => {
                 setStorage(myKey, toRaw(store.$state))
             }
         })
+        // 如果sessionStorage中存在数据，则赋值给store
         return {
             ...storeData
         }

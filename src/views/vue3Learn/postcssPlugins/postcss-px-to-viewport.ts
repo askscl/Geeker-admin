@@ -1,4 +1,5 @@
 // postcss 的插件 vite内置了postcss 无需安装
+// 测试用例在：src\views\vue3Learn\test\index.vue
 import { Plugin } from "postcss"
 interface Options {
     unitToConvert?: string
