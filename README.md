@@ -104,6 +104,9 @@ pnpm commit
 
 ![home_dark](https://i.imgtg.com/2023/04/13/8tpfb.png)
 
+-   语法糖学习：
+    ![vue3Learn](https://ooo.0x0.ooo/2025/04/25/OcA7wr.jpg)
+
 -   表格页：
 
 ![table_light](https://i.imgtg.com/2023/04/13/8tfMx.png)
