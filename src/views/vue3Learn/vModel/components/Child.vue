@@ -33,8 +33,8 @@ const change = (e: Event) => {
 <style scoped lang="scss">
 .ChildDiv {
     width: 500px;
-    border: 5px solid #ccc;
     padding: 10px;
+    border: 5px solid #cccccc;
 }
 .close {
     text-align: right;

@@ -42,12 +42,47 @@
                 <el-button>Cancel</el-button>
             </el-form-item>
         </el-form>
+        <el-table :data="tableData" style="width: 100%">
+            <el-table-column fixed prop="date" label="Date" width="150" />
+            <el-table-column prop="name" label="Name" width="120" />
+            <el-table-column prop="state" label="State" width="120" />
+            <el-table-column prop="city" label="City" width="120" />
+            <el-table-column prop="address" label="Address" width="600" />
+            <el-table-column prop="zip" label="Zip" width="120" />
+            <el-table-column fixed="right" label="Operations" min-width="120">
+                <template #default>
+                    <el-button link type="primary" size="small" @click="handleClick"> Detail </el-button>
+                    <el-button link type="primary" size="small" @click="btn_edit">Edit</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+
+        <!-- 弹框 -->
+        <el-dialog v-model="dialogVisible" title="Tips" width="500" :before-close="handleClose">
+            <el-form :model="form" label-width="auto" style="max-width: 600px">
+                <el-form-item label="Activity name">
+                    <el-input v-model="form.name" />
+                </el-form-item>
+                <el-form-item label="Activity zone">
+                    <el-select v-model="form.region" placeholder="please select your zone">
+                        <el-option label="Zone one" value="shanghai" />
+                        <el-option label="Zone two" value="beijing" />
+                    </el-select>
+                </el-form-item>
+            </el-form>
+            <template #footer>
+                <div class="dialog-footer">
+                    <el-button @click="dialogVisible = false">Cancel</el-button>
+                    <el-button type="primary" @click="dialogVisible = false"> Confirm </el-button>
+                </div>
+            </template>
+        </el-dialog>
     </div>
 </template>
 
 <script setup lang="ts" name="basicForm">
-import { ElMessage } from 'element-plus'
-import { reactive } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { reactive, ref } from 'vue'
 
 // do not use same name with ref
 const formData = reactive({
@@ -64,6 +99,71 @@ const formData = reactive({
 const onSubmit = () => {
     ElMessage.success('提交的数据为 : ' + JSON.stringify(formData))
 }
+
+// 表格数据
+const tableData = [
+    {
+        date: '2016-05-03',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Home'
+    },
+    {
+        date: '2016-05-02',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Office'
+    },
+    {
+        date: '2016-05-04',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Home'
+    },
+    {
+        date: '2016-05-01',
+        name: 'Tom',
+        state: 'California',
+        city: 'Los Angeles',
+        address: 'No. 189, Grove St, Los Angeles',
+        zip: 'CA 90036',
+        tag: 'Office'
+    }
+]
+
+// 表格编辑
+const btn_edit = () => {
+    ElMessage.success('编辑')
+}
+
+// 弹框数据
+const dialogVisible = ref(false)
+const handleClick = () => {
+    dialogVisible.value = true
+}
+
+const handleClose = (done: () => void) => {
+    ElMessageBox.confirm('Are you sure to close this dialog?')
+        .then(() => {
+            done()
+        })
+        .catch(() => {
+            // catch error
+        })
+}
+const form = reactive({
+    name: '',
+    region: ''
+})
 </script>
 
 <style scoped lang="scss">
