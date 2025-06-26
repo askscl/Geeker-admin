@@ -19,9 +19,10 @@ const draggable: Directive = {
         el.style.cursor = 'move'
         el.style.position = 'absolute'
         el.onmousedown = function (e) {
-            // pageX, pageY 鼠标在页面上的位置, offsetLeft, offsetTop 元素相对于父元素的位置
-            let disX = e.pageX - el.offsetLeft
-            let disY = e.pageY - el.offsetTop
+            // pageX, pageY 鼠标在页面上的位置,pageX, pageY 是相对于整个页面的坐标，也就是从页面左上角开始计算，和浏览器是否有滚动条无关
+            //  offsetLeft, offsetTop 元素相对于父元素的位置
+            let disX = e.pageX - el.offsetLeft //鼠标距离元素左边的距离
+            let disY = e.pageY - el.offsetTop //鼠标距离元素上边的距离
             document.onmousemove = function (e) {
                 let x = e.pageX - disX
                 let y = e.pageY - disY
