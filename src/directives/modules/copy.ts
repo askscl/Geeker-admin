@@ -27,7 +27,7 @@ function handleClick(this: any) {
     input.value = this.copyData.toLocaleString()
     document.body.appendChild(input)
     input.select()
-    document.execCommand('Copy')
+    document.execCommand('Copy') // 执行浏览器复制命令
     document.body.removeChild(input)
     ElMessage({
         type: 'success',
